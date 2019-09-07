@@ -109,8 +109,48 @@ output: html_document
 
 7. A veterinarian is interested in the life span of golden retrievers. She recorded the age at death (in years) of the retrievers treated in her clinic. The ages were $12, 9, 11, 10, 8, 14, 12, 1, 9, 12$.
     a. Use R to calculate the mean, median, and mode for age at death.
+        ```{r}
+        # Return a vector's most frequently occuring value
+        #
+        # First, a new vector is created containing the input values 
+        # with duplicates removed. The two vectors are compared to find
+        # the index positions where each input value occurs in the unique
+        # vector. The values (positions) in the index vector are counted
+        # for frequency and the postion of the most frequent position 
+        # value is returned. This is used to retrieve a value from the 
+        # unique vector.
+        #
+        # https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode
+        Mode <- function(x) {
+          ux <- unique(x)
+          ux[which.max(tabulate(match(x, ux)))]
+        }
+        ```
+        ```{r}
+        dogs <- c(12, 9, 11, 10, 8, 14, 12, 1, 9, 12)
+        ```
+        ```{r}
+        mean(dogs)
+        median(dogs)
+        Mode(dogs)
+        ```
+    
     b. After examining her records, the veterinarian discovered that the dog that had died at 1 year was killed by a car. Using R, recalculate the mean, median, and mode without that dog’s data.
+        ```{r}
+        dead_dogs <- c(1)
+        dogs <- dogs[-which(dogs == dead_dogs)]
+        dogs
+        ```
+        ```{r}
+        mean(dogs)
+        median(dogs)
+        Mode(dogs)
+        ```
     c. Which measure of central tendency in part *b* changed the most, compared to the values in part *a*? Why?
+    
+        *The one-year-old dog was an outlier in the dataset. None of the other dogs lived less than 8 years. Removing this
+        value affected the mean most of all, because it is sensitive to outliers. The median was also impacted because 
+        the removed value happened to be the minimum value. This change was not as dramatic.*
 
 8. By hand, calculate the mean, sums of squares ($SS$), and variance ($s^2$) for the following sample of scores: $11, 17, 14, 10, 13, 8, 7, 14$.
 

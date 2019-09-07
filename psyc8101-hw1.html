@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Eddie Chapman" />
@@ -71,9 +72,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -87,7 +86,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -104,8 +102,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -163,20 +159,17 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -186,8 +179,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">HW #1: Review of Basic Statistical Concepts, Descriptive Statistics, &amp; Normal Distribution</h1>
-<h4 class="author"><em>Eddie Chapman</em></h4>
-<h4 class="date"><em>August 27, 2019</em></h4>
+<h4 class="author">Eddie Chapman</h4>
+<h4 class="date">August 27, 2019</h4>
 
 </div>
 
@@ -219,7 +212,7 @@ Y_{1}&amp;=3 &amp; Y_{2}&amp;=5 &amp; Y_{3}&amp;=7 &amp; Y_{4}&amp;=9 &amp; Y_{5
 \end{align*}\]</span></p>
 </blockquote>
 <ol start="3" style="list-style-type: decimal">
-<li><p>By hand (you may use a calculator), find the value of each of the following expressions: <span class="math inline">\(\begin{align*} a.\quad &amp; \displaystyle\sum_{i=2}^{5} X_i &amp; 4 + 6 + 8 + 10 &amp;= 28\\ b.\quad &amp; \displaystyle\sum 5X_i &amp; (5 * 2) + (5 * 4) + (5 * 6) + (5 * 8) + (5 * 10) &amp;= 150\\ c.\quad &amp; \displaystyle\sum 3Y_i &amp; (3 * 3) + (3 * 5) + (3 * 7) + (3 * 9) + (3 * 11) &amp;= 105\\ d.\quad &amp; \displaystyle\sum X_i^2 &amp; 2^2 + 4^2 + 6^2 + 8^2 + 10^2 &amp;= 220\\ e.\quad &amp; (\displaystyle\sum Y_i)^2 &amp; (3 + 5 + 7 + 9 + 11)^2 &amp;= 1225\\ \end{align*}\)</span></p></li>
+<li><p>By hand (you may use a calculator), find the value of each of the following expressions: <span class="math inline">\(\begin{align*}  a.\quad &amp; \displaystyle\sum_{i=2}^{5} X_i &amp; 4 + 6 + 8 + 10 &amp;= 28\\  b.\quad &amp; \displaystyle\sum 5X_i &amp; (5 * 2) + (5 * 4) + (5 * 6) + (5 * 8) + (5 * 10) &amp;= 150\\  c.\quad &amp; \displaystyle\sum 3Y_i &amp; (3 * 3) + (3 * 5) + (3 * 7) + (3 * 9) + (3 * 11) &amp;= 105\\  d.\quad &amp; \displaystyle\sum X_i^2 &amp; 2^2 + 4^2 + 6^2 + 8^2 + 10^2 &amp;= 220\\  e.\quad &amp; (\displaystyle\sum Y_i)^2 &amp; (3 + 5 + 7 + 9 + 11)^2 &amp;= 1225\\  \end{align*}\)</span></p></li>
 <li><p>Now, use R to evaluate all of the expressions from #3.</p>
 <pre class="r"><code>X = c(2, 4, 6, 8, 10)
 Y = c(3, 5, 7, 9, 11)</code></pre>
@@ -240,7 +233,7 @@ Y = c(3, 5, 7, 9, 11)</code></pre>
 <pre class="r"><code>sum(Y)^2</code></pre>
 <pre><code>## [1] 1225</code></pre></li>
 </ol></li>
-<li><p>By hand (you may use a calculator), find the value of each of the following expressions: <span class="math inline">\(\begin{align*} a.\quad &amp; \displaystyle\sum(X + Y) &amp; (2 + 3) + (4 + 5) + (6 + 7) + (8 + 9) + (10 + 11) &amp;= 65\\ b.\quad &amp; \displaystyle\sum XY &amp; (2 * 3) + (4 * 5) + (6 * 7) + (8 * 9) + (10 * 11) &amp;= 250\\ c.\quad &amp; (\displaystyle\sum X)(\displaystyle\sum Y) &amp; (2 + 4 + 6 + 8 + 10) * (3 + 5 + 7 + 9 + 11) &amp;= 1050\\ d.\quad &amp; \displaystyle\sum(Y - 2) &amp; (3 - 2) + (5 - 2) + (7 - 2) + (9 - 2) + (11 - 2) &amp;= 25\\ \end{align*}\)</span></p></li>
+<li><p>By hand (you may use a calculator), find the value of each of the following expressions: <span class="math inline">\(\begin{align*}  a.\quad &amp; \displaystyle\sum(X + Y) &amp; (2 + 3) + (4 + 5) + (6 + 7) + (8 + 9) + (10 + 11) &amp;= 65\\  b.\quad &amp; \displaystyle\sum XY &amp; (2 * 3) + (4 * 5) + (6 * 7) + (8 * 9) + (10 * 11) &amp;= 250\\  c.\quad &amp; (\displaystyle\sum X)(\displaystyle\sum Y) &amp; (2 + 4 + 6 + 8 + 10) * (3 + 5 + 7 + 9 + 11) &amp;= 1050\\  d.\quad &amp; \displaystyle\sum(Y - 2) &amp; (3 - 2) + (5 - 2) + (7 - 2) + (9 - 2) + (11 - 2) &amp;= 25\\  \end{align*}\)</span></p></li>
 <li><p>Now, use R to evaluate all of the expressions from #5.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(\displaystyle\sum(X + Y)\)</span></p>
@@ -258,9 +251,42 @@ Y = c(3, 5, 7, 9, 11)</code></pre>
 </ol></li>
 <li>A veterinarian is interested in the life span of golden retrievers. She recorded the age at death (in years) of the retrievers treated in her clinic. The ages were <span class="math inline">\(12, 9, 11, 10, 8, 14, 12, 1, 9, 12\)</span>.
 <ol style="list-style-type: lower-alpha">
-<li>Use R to calculate the mean, median, and mode for age at death.</li>
-<li>After examining her records, the veterinarian discovered that the dog that had died at 1 year was killed by a car. Using R, recalculate the mean, median, and mode without that dog’s data.</li>
-<li>Which measure of central tendency in part <em>b</em> changed the most, compared to the values in part <em>a</em>? Why?</li>
+<li><p>Use R to calculate the mean, median, and mode for age at death.</p>
+<pre class="r"><code># Return a vector's most frequently occuring value
+#
+# First, a new vector is created containing the input values 
+# with duplicates removed. The two vectors are compared to find
+# the index positions where each input value occurs in the unique
+# vector. The values (positions) in the index vector are counted
+# for frequency and the postion of the most frequent position 
+# value is returned. This is used to retrieve a value from the 
+# unique vector.
+#
+# https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode
+Mode &lt;- function(x) {
+  ux &lt;- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}</code></pre>
+<pre class="r"><code>dogs &lt;- c(12, 9, 11, 10, 8, 14, 12, 1, 9, 12)</code></pre>
+<pre class="r"><code>mean(dogs)</code></pre>
+<pre><code>## [1] 9.8</code></pre>
+<pre class="r"><code>median(dogs)</code></pre>
+<pre><code>## [1] 10.5</code></pre>
+<pre class="r"><code>Mode(dogs)</code></pre>
+<pre><code>## [1] 12</code></pre></li>
+<li><p>After examining her records, the veterinarian discovered that the dog that had died at 1 year was killed by a car. Using R, recalculate the mean, median, and mode without that dog’s data.</p>
+<pre class="r"><code>dead_dogs &lt;- c(1)
+dogs &lt;- dogs[-which(dogs == dead_dogs)]
+dogs</code></pre>
+<pre><code>## [1] 12  9 11 10  8 14 12  9 12</code></pre>
+<pre class="r"><code>mean(dogs)</code></pre>
+<pre><code>## [1] 10.77778</code></pre>
+<pre class="r"><code>median(dogs)</code></pre>
+<pre><code>## [1] 11</code></pre>
+<pre class="r"><code>Mode(dogs)</code></pre>
+<pre><code>## [1] 12</code></pre></li>
+<li><p>Which measure of central tendency in part <em>b</em> changed the most, compared to the values in part <em>a</em>? Why?</p>
+<p><em>The one-year-old dog was an outlier in the dataset. None of the other dogs lived less than 8 years. Removing this value affected the mean most of all, because it is sensitive to outliers. The median was also impacted because the removed value happened to be the minimum value. This change was not as dramatic.</em></p></li>
 </ol></li>
 <li><p>By hand, calculate the mean, sums of squares (<span class="math inline">\(SS\)</span>), and variance (<span class="math inline">\(s^2\)</span>) for the following sample of scores: <span class="math inline">\(11, 17, 14, 10, 13, 8, 7, 14\)</span>.</p></li>
 <li><p>Now using R, calculate all of the quantities from #8.</p></li>
@@ -322,6 +348,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
