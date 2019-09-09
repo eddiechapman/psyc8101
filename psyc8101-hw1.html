@@ -288,8 +288,19 @@ dogs</code></pre>
 <li><p>Which measure of central tendency in part <em>b</em> changed the most, compared to the values in part <em>a</em>? Why?</p>
 <p><em>The one-year-old dog was an outlier in the dataset. None of the other dogs lived less than 8 years. Removing this value affected the mean most of all, because it is sensitive to outliers. The median was also impacted because the removed value happened to be the minimum value. This change was not as dramatic.</em></p></li>
 </ol></li>
-<li><p>By hand, calculate the mean, sums of squares (<span class="math inline">\(SS\)</span>), and variance (<span class="math inline">\(s^2\)</span>) for the following sample of scores: <span class="math inline">\(11, 17, 14, 10, 13, 8, 7, 14\)</span>.</p></li>
-<li><p>Now using R, calculate all of the quantities from #8.</p></li>
+<li><p>By hand, calculate the mean, sums of squares (<span class="math inline">\(SS\)</span>), and variance (<span class="math inline">\(s^2\)</span>) for the following sample of scores: <span class="math inline">\(11, 17, 14, 10, 13, 8, 7, 14\)</span>.</p>
+<p>mean: <span class="math inline">\(\frac{11 + 17 + 14 + 10 + 13 + 8 + 7 + 14}{8} = 11.75\)</span></p>
+<p>sums of squares:</p>
+<p><span class="math inline">\((11 - 11.75)^2 + (17 - 11.75)^2 + (14 - 11.75)^2 + (10 - 11.75)^2 + (13 - 11.75)^2 + (8 - 11.75)^2 + (7 - 11.75)^2 + (14 - 11.75)^2 = 79.5\)</span></p>
+<p>variance: <span class="math inline">\(\frac{79.5}{7} = 11.357\)</span></p></li>
+<li><p>Now using R, calculate all of the quantities from #8.</p>
+<pre class="r"><code>scores &lt;- c(11, 17, 14, 10, 13, 8, 7, 14)</code></pre>
+<pre class="r"><code>mean(scores)</code></pre>
+<pre><code>## [1] 11.75</code></pre>
+<pre class="r"><code>sum((scores - mean(scores))^2)</code></pre>
+<pre><code>## [1] 79.5</code></pre>
+<pre class="r"><code>sum((scores - mean(scores))^2) / (length(scores) - 1)</code></pre>
+<pre><code>## [1] 11.35714</code></pre></li>
 <li>If you convert each score in a set of scores to a <span class="math inline">\(z\)</span>-score, which of the following will be true about the resulting set of <span class="math inline">\(z\)</span>-scores?
 <ol style="list-style-type: lower-alpha">
 <li>The mean will equal 1.</li>

@@ -1,8 +1,11 @@
 ---
-title: "HW #1: Review of Basic Statistical Concepts, Descriptive Statistics, & Normal Distribution"
+title: 'HW #1: Review of Basic Statistical Concepts, Descriptive Statistics, & Normal
+  Distribution'
 author: "Eddie Chapman"
 date: "August 27, 2019"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 1. A psychologist records how many words participants recalled from a list under three different conditions: large reward for each word recalled, small reward for each word recalled, and no reward.
@@ -154,7 +157,28 @@ output: html_document
 
 8. By hand, calculate the mean, sums of squares ($SS$), and variance ($s^2$) for the following sample of scores: $11, 17, 14, 10, 13, 8, 7, 14$.
 
+    mean: $\frac{11 + 17 + 14 + 10 + 13 + 8 + 7 + 14}{8} = 11.75$
+    
+    sums of squares: 
+    
+    $(11 - 11.75)^2 + (17 - 11.75)^2 + (14 - 11.75)^2 + (10 - 11.75)^2 + (13 - 11.75)^2 + (8 - 11.75)^2 + (7 - 11.75)^2 + (14 - 11.75)^2 = 79.5$
+
+    variance: $\frac{79.5}{7} = 11.357$
+        
+        
 9. Now using R, calculate all of the quantities from #8.
+    ```{r}
+    scores <- c(11, 17, 14, 10, 13, 8, 7, 14)
+    ```
+    ```{r}
+    mean(scores)
+    ```
+    ```{r}
+    sum((scores - mean(scores))^2)
+    ```
+    ```{r}
+    sum((scores - mean(scores))^2) / (length(scores) - 1)
+    ```
 
 10. If you convert each score in a set of scores to a $z$-score, which of the following will be true about the resulting set of $z$-scores?   
     a. The mean will equal 1.
