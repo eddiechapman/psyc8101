@@ -12,7 +12,7 @@
 
 <meta name="author" content="Eddie Chapman" />
 
-<meta name="date" content="2019-08-27" />
+<meta name="date" content="2019-09-10" />
 
 <title>HW #1: Review of Basic Statistical Concepts, Descriptive Statistics, &amp; Normal Distribution</title>
 
@@ -180,7 +180,7 @@ summary {
 
 <h1 class="title toc-ignore">HW #1: Review of Basic Statistical Concepts, Descriptive Statistics, &amp; Normal Distribution</h1>
 <h4 class="author">Eddie Chapman</h4>
-<h4 class="date">August 27, 2019</h4>
+<h4 class="date">September 10, 2019</h4>
 
 </div>
 
@@ -233,7 +233,12 @@ Y = c(3, 5, 7, 9, 11)</code></pre>
 <pre class="r"><code>sum(Y)^2</code></pre>
 <pre><code>## [1] 1225</code></pre></li>
 </ol></li>
-<li><p>By hand (you may use a calculator), find the value of each of the following expressions: <span class="math inline">\(\begin{align*}  a.\quad &amp; \displaystyle\sum(X + Y) &amp; (2 + 3) + (4 + 5) + (6 + 7) + (8 + 9) + (10 + 11) &amp;= 65\\  b.\quad &amp; \displaystyle\sum XY &amp; (2 * 3) + (4 * 5) + (6 * 7) + (8 * 9) + (10 * 11) &amp;= 250\\  c.\quad &amp; (\displaystyle\sum X)(\displaystyle\sum Y) &amp; (2 + 4 + 6 + 8 + 10) * (3 + 5 + 7 + 9 + 11) &amp;= 1050\\  d.\quad &amp; \displaystyle\sum(Y - 2) &amp; (3 - 2) + (5 - 2) + (7 - 2) + (9 - 2) + (11 - 2) &amp;= 25\\  \end{align*}\)</span></p></li>
+<li><p>By hand (you may use a calculator), find the value of each of the following expressions: <span class="math display">\[\begin{align*}
+  a.\quad &amp; \displaystyle\sum(X + Y) &amp; (2 + 3) + (4 + 5) + (6 + 7) + (8 + 9) + (10 + 11) &amp;= 65\\
+  b.\quad &amp; \displaystyle\sum XY &amp; (2 * 3) + (4 * 5) + (6 * 7) + (8 * 9) + (10 * 11) &amp;= 250\\
+  c.\quad &amp; (\displaystyle\sum X)(\displaystyle\sum Y) &amp; (2 + 4 + 6 + 8 + 10) * (3 + 5 + 7 + 9 + 11) &amp;= 1050\\
+  d.\quad &amp; \displaystyle\sum(Y - 2) &amp; (3 - 2) + (5 - 2) + (7 - 2) + (9 - 2) + (11 - 2) &amp;= 25\\
+  \end{align*}\]</span></p></li>
 <li><p>Now, use R to evaluate all of the expressions from #5.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(\displaystyle\sum(X + Y)\)</span></p>
@@ -252,17 +257,18 @@ Y = c(3, 5, 7, 9, 11)</code></pre>
 <li>A veterinarian is interested in the life span of golden retrievers. She recorded the age at death (in years) of the retrievers treated in her clinic. The ages were <span class="math inline">\(12, 9, 11, 10, 8, 14, 12, 1, 9, 12\)</span>.
 <ol style="list-style-type: lower-alpha">
 <li><p>Use R to calculate the mean, median, and mode for age at death.</p>
-<pre class="r"><code># Return a vector's most frequently occuring value
+<pre class="r"><code># Return a vector's most frequently occurring value
 #
 # First, a new vector is created containing the input values 
 # with duplicates removed. The two vectors are compared to find
 # the index positions where each input value occurs in the unique
 # vector. The values (positions) in the index vector are counted
-# for frequency and the postion of the most frequent position 
+# for frequency and the position of the most frequent position 
 # value is returned. This is used to retrieve a value from the 
 # unique vector.
 #
-# https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode
+# https://stackoverflow.com/questions/2547402/is-there-a-built-
+# in-function-for-finding-the-mode
 Mode &lt;- function(x) {
   ux &lt;- unique(x)
   ux[which.max(tabulate(match(x, ux)))]

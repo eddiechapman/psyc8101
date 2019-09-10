@@ -2,10 +2,11 @@
 title: 'HW #1: Review of Basic Statistical Concepts, Descriptive Statistics, & Normal
   Distribution'
 author: "Eddie Chapman"
-date: "August 27, 2019"
+date: "September 10, 2019"
 output:
   pdf_document: default
   html_document: default
+  word_document: default
 ---
 
 1. A psychologist records how many words participants recalled from a list under three different conditions: large reward for each word recalled, small reward for each word recalled, and no reward.
@@ -81,12 +82,12 @@ output:
         ```
 
 5. By hand (you may use a calculator), find the value of each of the following expressions:
-  $\begin{align*}
+  \[\begin{align*}
   a.\quad & \displaystyle\sum(X + Y) & (2 + 3) + (4 + 5) + (6 + 7) + (8 + 9) + (10 + 11) &= 65\\
   b.\quad & \displaystyle\sum XY & (2 * 3) + (4 * 5) + (6 * 7) + (8 * 9) + (10 * 11) &= 250\\
   c.\quad & (\displaystyle\sum X)(\displaystyle\sum Y) & (2 + 4 + 6 + 8 + 10) * (3 + 5 + 7 + 9 + 11) &= 1050\\
   d.\quad & \displaystyle\sum(Y - 2) & (3 - 2) + (5 - 2) + (7 - 2) + (9 - 2) + (11 - 2) &= 25\\
-  \end{align*}$
+  \end{align*}\]
     
 6. Now, use R to evaluate all of the expressions from #5.
 
@@ -113,17 +114,18 @@ output:
 7. A veterinarian is interested in the life span of golden retrievers. She recorded the age at death (in years) of the retrievers treated in her clinic. The ages were $12, 9, 11, 10, 8, 14, 12, 1, 9, 12$.
     a. Use R to calculate the mean, median, and mode for age at death.
         ```{r}
-        # Return a vector's most frequently occuring value
+        # Return a vector's most frequently occurring value
         #
         # First, a new vector is created containing the input values 
         # with duplicates removed. The two vectors are compared to find
         # the index positions where each input value occurs in the unique
         # vector. The values (positions) in the index vector are counted
-        # for frequency and the postion of the most frequent position 
+        # for frequency and the position of the most frequent position 
         # value is returned. This is used to retrieve a value from the 
         # unique vector.
         #
-        # https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode
+        # https://stackoverflow.com/questions/2547402/is-there-a-built-
+        # in-function-for-finding-the-mode
         Mode <- function(x) {
           ux <- unique(x)
           ux[which.max(tabulate(match(x, ux)))]
@@ -188,9 +190,9 @@ output:
     e. None of the above.
 
 11. The SAT has a mean of 500 and a standard deviation of 100 in the population. What SAT score corresponds to 
-    a. $z=−0.2$
+    a. $z= -0.2$
     b. $z= +1.3$
-    c. $z=−3.1$ 
+    c. $z= -3.1$ 
     d. $z= +1.9$
 
 12. Use the $z$-table to find the area under the normal distribution beyond $z$ when $z$ equals 
@@ -200,8 +202,8 @@ output:
 
 
 13. On a normal distribution, find the area between 
-    a. $z = −0.5$ and $z = +1.0$
-    b. $z = −1.5$ and $z = +0.75$ 
+    a. $z = -0.5$ and $z = +1.0$
+    b. $z = -1.5$ and $z = +0.75$ 
     c. $z = +0.75$ and $z = +1.5$
 
 
