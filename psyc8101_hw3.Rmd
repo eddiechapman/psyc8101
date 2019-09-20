@@ -1,0 +1,33 @@
+---
+title: 'HW #3: Central Limit Theorem & Hypothesis Testing with a Single Sample'
+author: "Eddie Chapman"
+date: "9/24/19"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+1. Assuming that IQ is normally distributed with a population mean of 100 and a population standard deviation of 15, describe completely the sampling distribution of the mean for a sample size equal to 20 (i.e., its mean, standard deviation, and shape).
+
+2. Can repressed anger lead to higher blood pressure? In a hypothetical study, 16 college students with very high repressed anger scores (derived from a series of questionnaires taken in an introductory psychology class) are called in to have their blood pressure measured. The mean systolic blood pressure for this sample ($\bar{X}$) is 124 mmHg. If the mean systolic blood pressure for the population is 120 with a standard deviation of 10, can you conclude that repressed anger is associated with higher blood pressure? Use $\alpha$ = 0.05 and conduct a two-tailed test. Show all steps of null hypothesis significance testing as we have done in class, and interpret your results in the context of the research question.
+
+3. Imagine that you are testing a new drug that seems to raise the number of T cells in the blood and therefore has enormous potential for the treatment of disease. After treating 100 patients, you find that their mean ($\bar{X}$) T cell count is 29.1. Assume that $\mu$ and $\sigma$ (hypothetically) are 28 and 6, respectively.
+
+    a. Test the null hypothesis at the 0.05 level, two-tailed.
+  
+    b. Test the same hypothesis at the $\alpha$ = 0.1 level, two-tailed. (You only need to state what is different.)
+  
+    c. Describe in practical terms what it would mean to commit a Type I error in this example.
+  
+    d. Describe in practical terms what it would mean to commit a Type II error in this example.
+  
+    e. How might you justify the use of $\alpha$ = 0.1 in similar experiments?
+  
+4. Assuming everything else in the previous problem stayed the same, what would happen to our calculated $z$ if the population standard deviation ($\sigma$) were 3 instead of 6? What general statement can you make about how changes in $\sigma$ affect the calculated value of $z$?
+
+5. Referring to #4, suppose that $\bar{X}$ is equal to 29.1 regardless of the sample size. How large would $n$ have to be for the calculated $z$ to be statistically significant at the 0.01 level (two-tailed)?
+
+6. A psychologist would like to know how many casual friends are in the average person's social network. She interviews a random sample of people and determines for each the number of friends or social acquaintances they see or talk to at least once a year. The data are as follows: 5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13. (To save you time, $\bar{X}$ = 12.33 and $s$ = 5.38.)
+
+    a. Test the null hypothesis that the sample is a random selection from the general population where $\mu$ = 5. Use $\alpha$ = 0.05 and conduct a two-tailed test, showing all the steps.
+
