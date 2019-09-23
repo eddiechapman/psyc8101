@@ -3,11 +3,22 @@ title: 'HW #3: Central Limit Theorem & Hypothesis Testing with a Single Sample'
 author: "Eddie Chapman"
 date: "9/24/19"
 output:
-  pdf_document: default
   html_notebook: default
+  pdf_document: default
 ---
 
 1. Assuming that IQ is normally distributed with a population mean of 100 and a population standard deviation of 15, describe completely the sampling distribution of the mean for a sample size equal to 20 (i.e., its mean, standard deviation, and shape).
+
+      *Mean* 
+        \[\mu_M = \mu\]
+        \[\mu_M = 100\]
+    
+      *Standard deviation (AKA standard error)*
+        \[\sigma_M = \frac{\sigma}{\sqrt{N}}\]
+        \[\sigma_M = \frac{15}{\sqrt{20}}\]
+        \[\sigma_M = 3.3541\]
+        
+      *The shape is normally distributed.*
 
 2. Can repressed anger lead to higher blood pressure? In a hypothetical study, 16 college students with very high repressed anger scores (derived from a series of questionnaires taken in an introductory psychology class) are called in to have their blood pressure measured. The mean systolic blood pressure for this sample ($\bar{X}$) is 124 mmHg. If the mean systolic blood pressure for the population is 120 with a standard deviation of 10, can you conclude that repressed anger is associated with higher blood pressure? Use $\alpha$ = 0.05 and conduct a two-tailed test. Show all steps of null hypothesis significance testing as we have done in class, and interpret your results in the context of the research question.
 
