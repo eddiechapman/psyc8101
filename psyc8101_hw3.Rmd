@@ -3,8 +3,8 @@ title: 'HW #3: Central Limit Theorem & Hypothesis Testing with a Single Sample'
 author: "Eddie Chapman"
 date: "9/24/19"
 output:
-  html_notebook: default
   pdf_document: default
+  html_notebook: default
 ---
 
 1. Assuming that IQ is normally distributed with a population mean of 100 and a population standard deviation of 15, describe completely the sampling distribution of the mean for a sample size equal to 20 (i.e., its mean, standard deviation, and shape).
@@ -22,23 +22,132 @@ output:
 
 2. Can repressed anger lead to higher blood pressure? In a hypothetical study, 16 college students with very high repressed anger scores (derived from a series of questionnaires taken in an introductory psychology class) are called in to have their blood pressure measured. The mean systolic blood pressure for this sample ($\bar{X}$) is 124 mmHg. If the mean systolic blood pressure for the population is 120 with a standard deviation of 10, can you conclude that repressed anger is associated with higher blood pressure? Use $\alpha$ = 0.05 and conduct a two-tailed test. Show all steps of null hypothesis significance testing as we have done in class, and interpret your results in the context of the research question.
 
+    *The results of the two-tailed test indicate that the students with high repressed anger scores do not have blood pressure measurements that vary significantly from the mean. Therefore, the null hypothesis is not disproven and research question regarding the connection between repressed anger and blood pressure remains unproven.*
+    
+    *null hypothesis*
+    \[H_0: \mu = 120\]
+
+    *research hypothesis*
+    \[H_1: \mu \neq 120\]
+
+    *mean*
+    \[\mu_M = \mu\]
+    \[\mu_M = 120\]
+
+    *standard deviation (AKA standard error)*
+    \[\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}}\]
+    \[\sigma_{\bar{X}} = \frac{10}{\sqrt{16}}\]
+    \[\sigma_{\bar{X}} = 2.5\]
+
+    *$z$-score*
+    \[z = \frac{\bar{X} - \mu}{\sigma_{\bar{X}}}\]
+    \[z = \frac{124 - 120}{2.5}\]
+    \[z = 1.6\]
+
+    *probability of $\mu = 124$*
+    \[p = 0.0548\]
+
+    *significance*
+    \[0.0548 > 0.025\]
+    
+
 3. Imagine that you are testing a new drug that seems to raise the number of T cells in the blood and therefore has enormous potential for the treatment of disease. After treating 100 patients, you find that their mean ($\bar{X}$) T cell count is 29.1. Assume that $\mu$ and $\sigma$ (hypothetically) are 28 and 6, respectively.
 
     a. Test the null hypothesis at the 0.05 level, two-tailed.
+    
+        *null hypothesis*
+        \[H_0: \mu = 28\]
+    
+        *research hypothesis*
+        \[H_1: \mu \neq 28\]
+    
+        *mean*
+        \[\mu_M = \mu\]
+        \[\mu_M = 28\]
+    
+        *standard error*
+        \[\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}}\]
+        \[\sigma_{\bar{X}} = \frac{6}{10}\]
+        \[\sigma_{\bar{X}} = 0.6\]
+    
+        *$z$-score*
+        \[z = \frac{\bar{X} - \mu}{\sigma_{\bar{X}}}\]
+        \[z = \frac{29.1 - 28}{0.6}\]
+        \[z = 1.83\]
+    
+        *probability of $\mu = 29.1$*
+        \[p = 0.0336\]
+    
+        *likelyhood*
+        \[0.0336 > 0.025\]
+    
   
     b. Test the same hypothesis at the $\alpha$ = 0.1 level, two-tailed. (You only need to state what is different.)
+    
+        *likelyhood*
+        \[0.0336 < 0.05\]
   
     c. Describe in practical terms what it would mean to commit a Type I error in this example.
   
+        *It would be a Type I error if our calculations indicated that the sample participants came from a different population than the non-treated control population when they were in fact part of the same group. This would mean that the drug is not effective, even though we said it was. It could happen if the alpha level was set too high.*
+  
     d. Describe in practical terms what it would mean to commit a Type II error in this example.
+    
+        *It would be a Type II error if our calculations found no significant difference between the mean T cell count of the sample group and the population when in fact there was a difference. This would mean that the drug treatment was effective, but we were unable to notice it. It could happen if our alpha level was set too low.*
   
     e. How might you justify the use of $\alpha$ = 0.1 in similar experiments?
+    
+        *Knowing that a higher alpha level increases the risk of Type I errors, it would be hard to justify the a 0.1 alpha level in this situation because of the importance of accuracy in medical studies. Because of harmful side-effects and complications, it is better to err on the side of incorrectly reporting medicine as ineffective than the opposite.*
   
 4. Assuming everything else in the previous problem stayed the same, what would happen to our calculated $z$ if the population standard deviation ($\sigma$) were 3 instead of 6? What general statement can you make about how changes in $\sigma$ affect the calculated value of $z$?
 
+    *A 50% reduction in the population standard deviation would result in a proportional decrease in the standard error and an inversely proportional increase in the $z$-score.*
+
 5. Referring to #4, suppose that $\bar{X}$ is equal to 29.1 regardless of the sample size. How large would $n$ have to be for the calculated $z$ to be statistically significant at the 0.01 level (two-tailed)?
+
+    \[z = \frac{\bar{X} - \mu}{\sigma_{\bar{X}}}\]
+    \[2.58 = \frac{29.1 - 28}{\sigma_{\bar{X}}}\]
+    \[2.58 = \frac{1.1}{\sigma_{\bar{X}}}\]
+    \[\sigma_{\bar{X}} = 0.43\]
+    
+    \[\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}}\]
+    \[0.43 = \frac{3}{\sqrt{N}}\]
+    \[\sqrt{N} = 7.036\]
+    \[N = 49.51\]
 
 6. A psychologist would like to know how many casual friends are in the average person's social network. She interviews a random sample of people and determines for each the number of friends or social acquaintances they see or talk to at least once a year. The data are as follows: 5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13. (To save you time, $\bar{X}$ = 12.33 and $s$ = 5.38.)
 
     a. Test the null hypothesis that the sample is a random selection from the general population where $\mu$ = 5. Use $\alpha$ = 0.05 and conduct a two-tailed test, showing all the steps.
 
+        *null hypothesis*
+        \[H_0: \mu = 5\]
+        
+        *research hypothesis*
+        \[H_1: \mu \neq 5\]
+        
+        *mean*
+        \[\mu_M = \mu\]
+        \[\mu_M = 5\]
+        
+        *standard error*
+        \[s_{\bar{X}} = \frac{\sigma}{\sqrt{N}}\]
+        \[s_{\bar{X}} = \frac{5.38}{\sqrt{15}}\]
+        \[s_{\bar{X}} = 1.39\]
+        
+        *degrees of freedom*
+        \[df = N-1\]
+        \[df = 14\]
+        
+        *critical value*
+        \[t_{crit}(14) = \pm2.145\]
+
+        *$t$-score*
+        \[t = \frac{\bar{X} - \mu}{s_{\bar{X}}}\]
+        \[t = \frac{12.33 - 5}{1.39}\]
+        \[t = \frac{7.33}{1.39}\]
+        \[t = 5.27\]
+        
+        *likelyhood*
+        \[5.27 > 2.145\]
+        
+        *The null hypothesis is not rejected.*
