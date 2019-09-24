@@ -10,6 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Eddie Chapman" />
 
 
 <title>HW #4: t-tests</title>
@@ -1744,17 +1745,46 @@ summary {
 
 
 <h1 class="title toc-ignore">HW #4: <em>t</em>-tests</h1>
+<h4 class="author">Eddie Chapman</h4>
+<h4 class="date">10/1/19</h4>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<div id="dont-do-questions-7-and-8" class="section level1">
-<h1>Don’t do questions #7 and #8</h1>
-<!-- rnb-text-end -->
-</div>
+<ol style="list-style-type: decimal">
+<li><p>A psychologist would like to know how many casual friends are in the average person’s social network. She interviews a random sample of people and determines for each the number of friends or social acquaintances they see or talk to at least once a year. The data are as follows: 5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13. (To save you time, <span class="math inline">\(\bar{X}\)</span> = 12.33 and <span class="math inline">\(s\)</span> = 5.38.)</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find the 95% confidence interval for the mean (<span class="math inline">\(\mu\)</span>) of the population.</p></li>
+<li><p>If a previous researcher had predicted the population mean of 10 casual friends per person, could that prediction be rejected as ahypothesis at the .05 level, two-tailed? How do you know?</p></li>
+</ol></li>
+<li><p>Use <code>R</code> to check your answer to #9(a). Include your code and output, and indicate where you can find the relevant values.</p></li>
+<li><p>The data file “speed.csv” contains the speeds (in miles per hour) for 25 individuals driving on the freeway. Test the nully hypothesis at the <span class="math inline">\(\alpha\)</span> = .05 level (two-tailed) that the mean of the population from which these data were drawn is 55 mph. What are the point estimate and 95% confidence interval of the population mean? Use <code>R</code> to answer this question, including relevant code and output.</p></li>
+<li><p>An educational psychologist is interested in whether a test prep program increases students’ verbal GRE scores. Students take the verbal GRE before the test prep program, and then they take the test again after the test prep program. The data are recorded below:</p></li>
+</ol>
+<p>Verbal GRE (1) 540 510 580 550 520</p>
+<p>Verbal GRE (2) 570 520 600 530 520</p>
+<pre><code>a. Why is a related samples $t$-test appropriate to address this research question?
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSFcgIzQ6ICp0Ki10ZXN0cyIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBEb24ndCBkbyBxdWVzdGlvbnMgIzcgYW5kICM4Cgo=</div>
+
+b. By hand, conduct a related samples $t$-test to determine whether the test prep program increases verbal GRE scores. (You may use `R` to calculate the mean and variance of the difference scores.) Use $\alpha$ = .05 and do a **one-tailed** test. 
+
+
+c. Construct a 95% confidence interval for $\hat{mu}_D$. (Use the two-tailed critical value.)
+
+
+d. Regardless of the outcome of the hypothesis test, if you were to compute Cohen's $d$, what value would make the most sense to use as the denominator (i.e., the standard deviation)? Why?</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Double check your hand calculations from #4 by inputting the data into <code>R</code> and conducting the appropriate test. Include any relevant code and output.</p></li>
+<li><p>A psychologist studying the dynamics of marraige wanted to know how many hours per week the average American couple spends discussing marital problems. The sample mean (<span class="math inline">\(\bar{X}\)</span>) of 155 randomly selected couples turned out to be 2.6 hours, with <span class="math inline">\(s\)</span> = 1.8.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find the 95% confidence interval for <span class="math inline">\(\hat{\mu}\)</span>.</p></li>
+<li><p>A European study had already estimated the population mean to be 3 hours per week for European couples. Are the American couples significantly different from the European couples at the <span class="math inline">\(\alpha\)</span> = .05 level? Explain how your answer to part (a) makes it easy to answer part (b) without needing to do any additional calculations.</p></li>
+</ol></li>
+</ol>
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAnSFcgIzQ6ICp0Ki10ZXN0cycKYXV0aG9yOiAiRWRkaWUgQ2hhcG1hbiIKZGF0ZTogIjEwLzEvMTkiCm91dHB1dDoKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKICBodG1sX25vdGVib29rOiBkZWZhdWx0Ci0tLQoxLiBBIHBzeWNob2xvZ2lzdCB3b3VsZCBsaWtlIHRvIGtub3cgaG93IG1hbnkgY2FzdWFsIGZyaWVuZHMgYXJlIGluIHRoZSBhdmVyYWdlIHBlcnNvbuKAmXMgc29jaWFsIG5ldHdvcmsuICBTaGUgaW50ZXJ2aWV3cyBhIHJhbmRvbSBzYW1wbGUgb2YgcGVvcGxlIGFuZCBkZXRlcm1pbmVzIGZvciBlYWNoIHRoZSBudW1iZXIgb2YgZnJpZW5kcyBvciBzb2NpYWwgYWNxdWFpbnRhbmNlcyB0aGV5IHNlZSBvciB0YWxrIHRvIGF0IGxlYXN0IG9uY2UgYSB5ZWFyLiBUaGUgZGF0YSBhcmUgYXMgZm9sbG93czogNSwgMTEsIDE1LCA5LCA3LCAxMywgMjMsIDgsIDEyLCA3LCAxMCwgMTEsIDIxLCAyMCwgMTMuIChUbyBzYXZlIHlvdSB0aW1lLCAkXGJhcntYfSQgPSAxMi4zMyBhbmQgJHMkID0gNS4zOC4pCgogICAgYS4gRmluZCB0aGUgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgZm9yIHRoZSBtZWFuICgkXG11JCkgb2YgdGhlIHBvcHVsYXRpb24uCiAgICAKICAgIAogICAgYi4gSWYgYSBwcmV2aW91cyByZXNlYXJjaGVyIGhhZCBwcmVkaWN0ZWQgdGhlIHBvcHVsYXRpb24gbWVhbiBvZiAxMCBjYXN1YWwgZnJpZW5kcyBwZXIgcGVyc29uLCBjb3VsZCB0aGF0IHByZWRpY3Rpb24gYmUgcmVqZWN0ZWQgYXMgYWh5cG90aGVzaXMgYXQgdGhlIC4wNSBsZXZlbCwgdHdvLXRhaWxlZD8gSG93IGRvIHlvdSBrbm93PwogICAgCiAgICAKMi4gVXNlIGBSYCB0byBjaGVjayB5b3VyIGFuc3dlciB0byAjOShhKS4gSW5jbHVkZSB5b3VyIGNvZGUgYW5kIG91dHB1dCwgYW5kIGluZGljYXRlIHdoZXJlIHlvdSBjYW4gZmluZCB0aGUgcmVsZXZhbnQgdmFsdWVzLgoKCjMuIFRoZSBkYXRhIGZpbGUgInNwZWVkLmNzdiIgY29udGFpbnMgdGhlIHNwZWVkcyAoaW4gbWlsZXMgcGVyIGhvdXIpIGZvciAyNSBpbmRpdmlkdWFscyBkcml2aW5nIG9uIHRoZSBmcmVld2F5LiBUZXN0IHRoZSBudWxseSBoeXBvdGhlc2lzIGF0IHRoZSAkXGFscGhhJCA9IC4wNSBsZXZlbCAodHdvLXRhaWxlZCkgdGhhdCB0aGUgbWVhbiBvZiB0aGUgcG9wdWxhdGlvbiBmcm9tIHdoaWNoIHRoZXNlIGRhdGEgd2VyZSBkcmF3biBpcyA1NSBtcGguIFdoYXQgYXJlIHRoZSBwb2ludCBlc3RpbWF0ZSBhbmQgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgb2YgdGhlIHBvcHVsYXRpb24gbWVhbj8gVXNlIGBSYCB0byBhbnN3ZXIgdGhpcyBxdWVzdGlvbiwgaW5jbHVkaW5nIHJlbGV2YW50IGNvZGUgYW5kIG91dHB1dC4gCgoKNC4gQW4gZWR1Y2F0aW9uYWwgcHN5Y2hvbG9naXN0IGlzIGludGVyZXN0ZWQgaW4gd2hldGhlciBhIHRlc3QgcHJlcCBwcm9ncmFtIGluY3JlYXNlcyBzdHVkZW50cycgdmVyYmFsIEdSRSBzY29yZXMuIFN0dWRlbnRzIHRha2UgdGhlIHZlcmJhbCBHUkUgYmVmb3JlIHRoZSB0ZXN0IHByZXAgcHJvZ3JhbSwgYW5kIHRoZW4gdGhleSB0YWtlIHRoZSB0ZXN0IGFnYWluIGFmdGVyIHRoZSB0ZXN0IHByZXAgcHJvZ3JhbS4gVGhlIGRhdGEgYXJlIHJlY29yZGVkIGJlbG93OgoKVmVyYmFsIEdSRSAoMSkKNTQwCjUxMAo1ODAKNTUwCjUyMAoKVmVyYmFsIEdSRSAoMikKNTcwCjUyMAo2MDAKNTMwCjUyMAoKICAgIGEuIFdoeSBpcyBhIHJlbGF0ZWQgc2FtcGxlcyAkdCQtdGVzdCBhcHByb3ByaWF0ZSB0byBhZGRyZXNzIHRoaXMgcmVzZWFyY2ggcXVlc3Rpb24/CiAgICAKICAgIAogICAgYi4gQnkgaGFuZCwgY29uZHVjdCBhIHJlbGF0ZWQgc2FtcGxlcyAkdCQtdGVzdCB0byBkZXRlcm1pbmUgd2hldGhlciB0aGUgdGVzdCBwcmVwIHByb2dyYW0gaW5jcmVhc2VzIHZlcmJhbCBHUkUgc2NvcmVzLiAoWW91IG1heSB1c2UgYFJgIHRvIGNhbGN1bGF0ZSB0aGUgbWVhbiBhbmQgdmFyaWFuY2Ugb2YgdGhlIGRpZmZlcmVuY2Ugc2NvcmVzLikgVXNlICRcYWxwaGEkID0gLjA1IGFuZCBkbyBhICoqb25lLXRhaWxlZCoqIHRlc3QuIAogICAgCiAgICAKICAgIGMuIENvbnN0cnVjdCBhIDk1JSBjb25maWRlbmNlIGludGVydmFsIGZvciAkXGhhdHttdX1fRCQuIChVc2UgdGhlIHR3by10YWlsZWQgY3JpdGljYWwgdmFsdWUuKQogICAgCiAgICAKICAgIGQuIFJlZ2FyZGxlc3Mgb2YgdGhlIG91dGNvbWUgb2YgdGhlIGh5cG90aGVzaXMgdGVzdCwgaWYgeW91IHdlcmUgdG8gY29tcHV0ZSBDb2hlbidzICRkJCwgd2hhdCB2YWx1ZSB3b3VsZCBtYWtlIHRoZSBtb3N0IHNlbnNlIHRvIHVzZSBhcyB0aGUgZGVub21pbmF0b3IgKGkuZS4sIHRoZSBzdGFuZGFyZCBkZXZpYXRpb24pPyBXaHk/CiAgICAKCjUuIERvdWJsZSBjaGVjayB5b3VyIGhhbmQgY2FsY3VsYXRpb25zIGZyb20gIzQgYnkgaW5wdXR0aW5nIHRoZSBkYXRhIGludG8gYFJgIGFuZCBjb25kdWN0aW5nIHRoZSBhcHByb3ByaWF0ZSB0ZXN0LiBJbmNsdWRlIGFueSByZWxldmFudCBjb2RlIGFuZCBvdXRwdXQuIAoKCjYuIEEgcHN5Y2hvbG9naXN0IHN0dWR5aW5nIHRoZSBkeW5hbWljcyBvZiBtYXJyYWlnZSB3YW50ZWQgdG8ga25vdyBob3cgbWFueSBob3VycyBwZXIgd2VlayB0aGUgYXZlcmFnZSBBbWVyaWNhbiBjb3VwbGUgc3BlbmRzIGRpc2N1c3NpbmcgbWFyaXRhbCBwcm9ibGVtcy4gVGhlIHNhbXBsZSBtZWFuICgkXGJhcntYfSQpIG9mIDE1NSByYW5kb21seSBzZWxlY3RlZCBjb3VwbGVzIHR1cm5lZCBvdXQgdG8gYmUgMi42IGhvdXJzLCB3aXRoICRzJCA9IDEuOC4KCiAgICBhLiBGaW5kIHRoZSA5NSUgY29uZmlkZW5jZSBpbnRlcnZhbCBmb3IgJFxoYXR7XG11fSQuCiAgICAKICAgIAogICAgdi4gQSBFdXJvcGVhbiBzdHVkeSBoYWQgYWxyZWFkeSBlc3RpbWF0ZWQgdGhlIHBvcHVsYXRpb24gbWVhbiB0byBiZSAzIGhvdXJzIHBlciB3ZWVrIGZvciBFdXJvcGVhbiBjb3VwbGVzLiBBcmUgdGhlIEFtZXJpY2FuIGNvdXBsZXMgc2lnbmlmaWNhbnRseSBkaWZmZXJlbnQgZnJvbSB0aGUgRXVyb3BlYW4gY291cGxlcyBhdCB0aGUgJFxhbHBoYSQgPSAuMDUgbGV2ZWw/IEV4cGxhaW4gaG93IHlvdXIgYW5zd2VyIHRvIHBhcnQgKGEpIG1ha2VzIGl0IGVhc3kgdG8gYW5zd2VyIHBhcnQgKGIpIHdpdGhvdXQgbmVlZGluZyB0byBkbyBhbnkgYWRkaXRpb25hbCBjYWxjdWxhdGlvbnMu</div>
 
 
 

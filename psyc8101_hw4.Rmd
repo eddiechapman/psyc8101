@@ -1,7 +1,59 @@
 ---
-title: "HW #4: *t*-tests"
-output: html_notebook
+title: 'HW #4: *t*-tests'
+author: "Eddie Chapman"
+date: "10/1/19"
+output:
+  pdf_document: default
+  html_notebook: default
 ---
+1. A psychologist would like to know how many casual friends are in the average person’s social network.  She interviews a random sample of people and determines for each the number of friends or social acquaintances they see or talk to at least once a year. The data are as follows: 5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13. (To save you time, $\bar{X}$ = 12.33 and $s$ = 5.38.)
 
-# Don't do questions #7 and #8
+    a. Find the 95% confidence interval for the mean ($\mu$) of the population.
+    
+    
+    b. If a previous researcher had predicted the population mean of 10 casual friends per person, could that prediction be rejected as ahypothesis at the .05 level, two-tailed? How do you know?
+    
+    
+2. Use `R` to check your answer to #9(a). Include your code and output, and indicate where you can find the relevant values.
 
+
+3. The data file "speed.csv" contains the speeds (in miles per hour) for 25 individuals driving on the freeway. Test the nully hypothesis at the $\alpha$ = .05 level (two-tailed) that the mean of the population from which these data were drawn is 55 mph. What are the point estimate and 95% confidence interval of the population mean? Use `R` to answer this question, including relevant code and output. 
+
+
+4. An educational psychologist is interested in whether a test prep program increases students' verbal GRE scores. Students take the verbal GRE before the test prep program, and then they take the test again after the test prep program. The data are recorded below:
+
+Verbal GRE (1)
+540
+510
+580
+550
+520
+
+Verbal GRE (2)
+570
+520
+600
+530
+520
+
+    a. Why is a related samples $t$-test appropriate to address this research question?
+    
+    
+    b. By hand, conduct a related samples $t$-test to determine whether the test prep program increases verbal GRE scores. (You may use `R` to calculate the mean and variance of the difference scores.) Use $\alpha$ = .05 and do a **one-tailed** test. 
+    
+    
+    c. Construct a 95% confidence interval for $\hat{mu}_D$. (Use the two-tailed critical value.)
+    
+    
+    d. Regardless of the outcome of the hypothesis test, if you were to compute Cohen's $d$, what value would make the most sense to use as the denominator (i.e., the standard deviation)? Why?
+    
+
+5. Double check your hand calculations from #4 by inputting the data into `R` and conducting the appropriate test. Include any relevant code and output. 
+
+
+6. A psychologist studying the dynamics of marraige wanted to know how many hours per week the average American couple spends discussing marital problems. The sample mean ($\bar{X}$) of 155 randomly selected couples turned out to be 2.6 hours, with $s$ = 1.8.
+
+    a. Find the 95% confidence interval for $\hat{\mu}$.
+    
+    
+    v. A European study had already estimated the population mean to be 3 hours per week for European couples. Are the American couples significantly different from the European couples at the $\alpha$ = .05 level? Explain how your answer to part (a) makes it easy to answer part (b) without needing to do any additional calculations.
