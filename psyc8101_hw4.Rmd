@@ -38,27 +38,54 @@ output:
     *We can reject the null hypothesis that $\mu$ is 55 mph because it does not fall within the 95 percent confidence interval of 57.83-67.21. The point estimate for the population mean is 62.52 mph.*
 4. An educational psychologist is interested in whether a test prep program increases students' verbal GRE scores. Students take the verbal GRE before the test prep program, and then they take the test again after the test prep program. The data are recorded below:
 
-Verbal GRE (1)
-540
-510
-580
-550
-520
 
-Verbal GRE (2)
-570
-520
-600
-530
-520
+    \[\begin{tabular}{||c c||} 
+        \hline
+        Verbal GRE (1) & Verbal GRE (2) \\ [0.5ex] 
+        \hline
+        \hline
+        540 & 570 \\ 
+        \hline
+        510 & 520 \\
+        \hline
+        580 & 600 \\
+        \hline
+        550 & 530 \\
+        \hline
+        520 & 520 \\
+        \hline
+      \end{tabular}\]
 
     a. Why is a related samples $t$-test appropriate to address this research question?
     
+        *The two sets of scores are not independent of each other. They can be grouped into matched pairs in order to test the difference between them using a related samples $t$-test.*
     
     b. By hand, conduct a related samples $t$-test to determine whether the test prep program increases verbal GRE scores. (You may use `R` to calculate the mean and variance of the difference scores.) Use $\alpha$ = .05 and do a **one-tailed** test. 
+        ```{r}
+        gre1 <- c(540, 510, 580, 550, 520)
+        gre2 <- c(570, 520, 600, 530, 520)
+        diff <- gre2 - gre1
+        n <- length(diff)
+        df <- n - 1
+        diff_mean <- mean(diff)
+        sd <- sd(diff)
+        std_err <- sd / sqrt(n)
+        ```
+        
+        $\bar{D}$ = `diff_mean` = `r diff_mean`  
+        $s_{\bar{D}}$ = `std_err` = `r std_err`  
+        $n$ = `n` = `r n`  
+        $df$ = `df` = `r df`  
+        $H_0: \mu_D = 0, \quad H_1: \mu_D \neq 0$  
+        $\mu_{\bar{D}} = 0$  
+        $t_{crit}(4) = 2.132$  
+        $t = \frac{\bar{D} - \mu_{\bar{D}}}{s_{\bar{D}}}$ = `(diff_mean - 0)/std_err` = `r (diff_mean - 0)/std_err`  
+        
+        *Our test statistic (0.93) does not exceed the critical value (2.132) so we cannot reject the null hypothesis that the test prep program does has no significant effect on the distribution of verbal GRE scores.*
+        
+        
     
-    
-    c. Construct a 95% confidence interval for $\hat{mu}_D$. (Use the two-tailed critical value.)
+    c. Construct a 95% confidence interval for $\hat{\mu}_D$. (Use the two-tailed critical value.) 
     
     
     d. Regardless of the outcome of the hypothesis test, if you were to compute Cohen's $d$, what value would make the most sense to use as the denominator (i.e., the standard deviation)? Why?
