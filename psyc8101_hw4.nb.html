@@ -1755,12 +1755,67 @@ summary {
 <ol style="list-style-type: decimal">
 <li><p>A psychologist would like to know how many casual friends are in the average person’s social network. She interviews a random sample of people and determines for each the number of friends or social acquaintances they see or talk to at least once a year. The data are as follows: 5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13. (To save you time, <span class="math inline">\(\bar{X}\)</span> = 12.33 and <span class="math inline">\(s\)</span> = 5.38.)</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Find the 95% confidence interval for the mean (<span class="math inline">\(\mu\)</span>) of the population.</p></li>
-<li><p>If a previous researcher had predicted the population mean of 10 casual friends per person, could that prediction be rejected as ahypothesis at the .05 level, two-tailed? How do you know?</p></li>
+<li><p>Find the 95% confidence interval for the mean (<span class="math inline">\(\mu\)</span>) of the population.</p>
+<p><span class="math display">\[CI_{.95} = \bar{X} \pm (t_{0.5/2})(s_{\bar{X}}) = \bar{X} \pm (t_{.05/2}) (\frac{s}{\sqrt{n}})\]</span></p>
+<p><span class="math display">\[CI_{.95} = 12.33 \pm 2.15 (\frac{5.38}{\sqrt{15}}) = 12.33 \pm 2.98\]</span></p>
+<p><span class="math display">\[\hat{\mu}_{lower} = 9.35 \quad \hat{\mu}_{upper} = 15.31\]</span></p></li>
+<li><p>If a previous researcher had predicted the population mean of 10 casual friends per person, could that prediction be rejected as a hypothesis at the .05 level, two-tailed? How do you know?</p>
+<p><em>Our confidence interval quantifies the variability around the point estimate. We can be fairly certain that the range of values between the upper and lower bounds contains the true population mean. Because the predicted point estimate of 10 is located within our confidence interval, it cannot be rejected as a hypothesis at the .05 level.</em></p></li>
 </ol></li>
 <li><p>Use <code>R</code> to check your answer to #9(a). Include your code and output, and indicate where you can find the relevant values.</p></li>
-<li><p>The data file “speed.csv” contains the speeds (in miles per hour) for 25 individuals driving on the freeway. Test the nully hypothesis at the <span class="math inline">\(\alpha\)</span> = .05 level (two-tailed) that the mean of the population from which these data were drawn is 55 mph. What are the point estimate and 95% confidence interval of the population mean? Use <code>R</code> to answer this question, including relevant code and output.</p></li>
-<li><p>An educational psychologist is interested in whether a test prep program increases students’ verbal GRE scores. Students take the verbal GRE before the test prep program, and then they take the test again after the test prep program. The data are recorded below:</p></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<pre><code>```r
+friend_counts &lt;- c(5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13)
+t.test(friend_counts, mu = 12.33, conf.level = .95)
+```</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZSBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICBmcmllbmRfY291bnRzXG50ID0gMC4wMDIzOTkzLCBkZiA9IDE0LCBwLXZhbHVlID0gMC45OTgxXG5hbHRlcm5hdGl2ZSBoeXBvdGhlc2lzOiB0cnVlIG1lYW4gaXMgbm90IGVxdWFsIHRvIDEyLjMzXG45NSBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWw6XG4gIDkuMzUzNTc4IDE1LjMxMzA4OVxuc2FtcGxlIGVzdGltYXRlczpcbm1lYW4gb2YgeCBcbiAxMi4zMzMzMyBcbiJ9 -->
+<pre><code>```
+
+    One Sample t-test
+
+data:  friend_counts
+t = 0.0023993, df = 14, p-value = 0.9981
+alternative hypothesis: true mean is not equal to 12.33
+95 percent confidence interval:
+  9.353578 15.313089
+sample estimates:
+mean of x 
+ 12.33333 
+```</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="3" style="list-style-type: decimal">
+<li>The data file “speed.csv” contains the speeds (in miles per hour) for 25 individuals driving on the freeway. Test the null hypothesis at the <span class="math inline">\(\alpha\)</span> = .05 level (two-tailed) that the mean of the population from which these data were drawn is 55 mph. What are the point estimate and 95% confidence interval of the population mean? Use <code>R</code> to answer this question, including relevant code and output.</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<pre><code>```r
+data &lt;- read.csv('speed.csv', header = T)
+t.test(data$Speed, mu = 55, conf.level = .95)
+```</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZSBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICBkYXRhJFNwZWVkXG50ID0gMy4zMTA0LCBkZiA9IDI0LCBwLXZhbHVlID0gMC4wMDI5MzdcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbWVhbiBpcyBub3QgZXF1YWwgdG8gNTVcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiA1Ny44MzE1NCA2Ny4yMDg0Nlxuc2FtcGxlIGVzdGltYXRlczpcbm1lYW4gb2YgeCBcbiAgICA2Mi41MiBcbiJ9 -->
+<pre><code>```
+
+    One Sample t-test
+
+data:  data$Speed
+t = 3.3104, df = 24, p-value = 0.002937
+alternative hypothesis: true mean is not equal to 55
+95 percent confidence interval:
+ 57.83154 67.20846
+sample estimates:
+mean of x 
+    62.52 
+```</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<pre><code>*We can reject the null hypothesis that $\mu$ is 55 mph because it does not fall within the 95 percent confidence interval of 57.83-67.21. The point estimate for the population mean is 62.52 mph.*</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>An educational psychologist is interested in whether a test prep program increases students’ verbal GRE scores. Students take the verbal GRE before the test prep program, and then they take the test again after the test prep program. The data are recorded below:</li>
 </ol>
 <p>Verbal GRE (1) 540 510 580 550 520</p>
 <p>Verbal GRE (2) 570 520 600 530 520</p>
@@ -1784,7 +1839,7 @@ d. Regardless of the outcome of the hypothesis test, if you were to compute Cohe
 </ol>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAnSFcgIzQ6ICp0Ki10ZXN0cycKYXV0aG9yOiAiRWRkaWUgQ2hhcG1hbiIKZGF0ZTogIjEwLzEvMTkiCm91dHB1dDoKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKICBodG1sX25vdGVib29rOiBkZWZhdWx0Ci0tLQoxLiBBIHBzeWNob2xvZ2lzdCB3b3VsZCBsaWtlIHRvIGtub3cgaG93IG1hbnkgY2FzdWFsIGZyaWVuZHMgYXJlIGluIHRoZSBhdmVyYWdlIHBlcnNvbuKAmXMgc29jaWFsIG5ldHdvcmsuICBTaGUgaW50ZXJ2aWV3cyBhIHJhbmRvbSBzYW1wbGUgb2YgcGVvcGxlIGFuZCBkZXRlcm1pbmVzIGZvciBlYWNoIHRoZSBudW1iZXIgb2YgZnJpZW5kcyBvciBzb2NpYWwgYWNxdWFpbnRhbmNlcyB0aGV5IHNlZSBvciB0YWxrIHRvIGF0IGxlYXN0IG9uY2UgYSB5ZWFyLiBUaGUgZGF0YSBhcmUgYXMgZm9sbG93czogNSwgMTEsIDE1LCA5LCA3LCAxMywgMjMsIDgsIDEyLCA3LCAxMCwgMTEsIDIxLCAyMCwgMTMuIChUbyBzYXZlIHlvdSB0aW1lLCAkXGJhcntYfSQgPSAxMi4zMyBhbmQgJHMkID0gNS4zOC4pCgogICAgYS4gRmluZCB0aGUgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgZm9yIHRoZSBtZWFuICgkXG11JCkgb2YgdGhlIHBvcHVsYXRpb24uCiAgICAKICAgIAogICAgYi4gSWYgYSBwcmV2aW91cyByZXNlYXJjaGVyIGhhZCBwcmVkaWN0ZWQgdGhlIHBvcHVsYXRpb24gbWVhbiBvZiAxMCBjYXN1YWwgZnJpZW5kcyBwZXIgcGVyc29uLCBjb3VsZCB0aGF0IHByZWRpY3Rpb24gYmUgcmVqZWN0ZWQgYXMgYWh5cG90aGVzaXMgYXQgdGhlIC4wNSBsZXZlbCwgdHdvLXRhaWxlZD8gSG93IGRvIHlvdSBrbm93PwogICAgCiAgICAKMi4gVXNlIGBSYCB0byBjaGVjayB5b3VyIGFuc3dlciB0byAjOShhKS4gSW5jbHVkZSB5b3VyIGNvZGUgYW5kIG91dHB1dCwgYW5kIGluZGljYXRlIHdoZXJlIHlvdSBjYW4gZmluZCB0aGUgcmVsZXZhbnQgdmFsdWVzLgoKCjMuIFRoZSBkYXRhIGZpbGUgInNwZWVkLmNzdiIgY29udGFpbnMgdGhlIHNwZWVkcyAoaW4gbWlsZXMgcGVyIGhvdXIpIGZvciAyNSBpbmRpdmlkdWFscyBkcml2aW5nIG9uIHRoZSBmcmVld2F5LiBUZXN0IHRoZSBudWxseSBoeXBvdGhlc2lzIGF0IHRoZSAkXGFscGhhJCA9IC4wNSBsZXZlbCAodHdvLXRhaWxlZCkgdGhhdCB0aGUgbWVhbiBvZiB0aGUgcG9wdWxhdGlvbiBmcm9tIHdoaWNoIHRoZXNlIGRhdGEgd2VyZSBkcmF3biBpcyA1NSBtcGguIFdoYXQgYXJlIHRoZSBwb2ludCBlc3RpbWF0ZSBhbmQgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgb2YgdGhlIHBvcHVsYXRpb24gbWVhbj8gVXNlIGBSYCB0byBhbnN3ZXIgdGhpcyBxdWVzdGlvbiwgaW5jbHVkaW5nIHJlbGV2YW50IGNvZGUgYW5kIG91dHB1dC4gCgoKNC4gQW4gZWR1Y2F0aW9uYWwgcHN5Y2hvbG9naXN0IGlzIGludGVyZXN0ZWQgaW4gd2hldGhlciBhIHRlc3QgcHJlcCBwcm9ncmFtIGluY3JlYXNlcyBzdHVkZW50cycgdmVyYmFsIEdSRSBzY29yZXMuIFN0dWRlbnRzIHRha2UgdGhlIHZlcmJhbCBHUkUgYmVmb3JlIHRoZSB0ZXN0IHByZXAgcHJvZ3JhbSwgYW5kIHRoZW4gdGhleSB0YWtlIHRoZSB0ZXN0IGFnYWluIGFmdGVyIHRoZSB0ZXN0IHByZXAgcHJvZ3JhbS4gVGhlIGRhdGEgYXJlIHJlY29yZGVkIGJlbG93OgoKVmVyYmFsIEdSRSAoMSkKNTQwCjUxMAo1ODAKNTUwCjUyMAoKVmVyYmFsIEdSRSAoMikKNTcwCjUyMAo2MDAKNTMwCjUyMAoKICAgIGEuIFdoeSBpcyBhIHJlbGF0ZWQgc2FtcGxlcyAkdCQtdGVzdCBhcHByb3ByaWF0ZSB0byBhZGRyZXNzIHRoaXMgcmVzZWFyY2ggcXVlc3Rpb24/CiAgICAKICAgIAogICAgYi4gQnkgaGFuZCwgY29uZHVjdCBhIHJlbGF0ZWQgc2FtcGxlcyAkdCQtdGVzdCB0byBkZXRlcm1pbmUgd2hldGhlciB0aGUgdGVzdCBwcmVwIHByb2dyYW0gaW5jcmVhc2VzIHZlcmJhbCBHUkUgc2NvcmVzLiAoWW91IG1heSB1c2UgYFJgIHRvIGNhbGN1bGF0ZSB0aGUgbWVhbiBhbmQgdmFyaWFuY2Ugb2YgdGhlIGRpZmZlcmVuY2Ugc2NvcmVzLikgVXNlICRcYWxwaGEkID0gLjA1IGFuZCBkbyBhICoqb25lLXRhaWxlZCoqIHRlc3QuIAogICAgCiAgICAKICAgIGMuIENvbnN0cnVjdCBhIDk1JSBjb25maWRlbmNlIGludGVydmFsIGZvciAkXGhhdHttdX1fRCQuIChVc2UgdGhlIHR3by10YWlsZWQgY3JpdGljYWwgdmFsdWUuKQogICAgCiAgICAKICAgIGQuIFJlZ2FyZGxlc3Mgb2YgdGhlIG91dGNvbWUgb2YgdGhlIGh5cG90aGVzaXMgdGVzdCwgaWYgeW91IHdlcmUgdG8gY29tcHV0ZSBDb2hlbidzICRkJCwgd2hhdCB2YWx1ZSB3b3VsZCBtYWtlIHRoZSBtb3N0IHNlbnNlIHRvIHVzZSBhcyB0aGUgZGVub21pbmF0b3IgKGkuZS4sIHRoZSBzdGFuZGFyZCBkZXZpYXRpb24pPyBXaHk/CiAgICAKCjUuIERvdWJsZSBjaGVjayB5b3VyIGhhbmQgY2FsY3VsYXRpb25zIGZyb20gIzQgYnkgaW5wdXR0aW5nIHRoZSBkYXRhIGludG8gYFJgIGFuZCBjb25kdWN0aW5nIHRoZSBhcHByb3ByaWF0ZSB0ZXN0LiBJbmNsdWRlIGFueSByZWxldmFudCBjb2RlIGFuZCBvdXRwdXQuIAoKCjYuIEEgcHN5Y2hvbG9naXN0IHN0dWR5aW5nIHRoZSBkeW5hbWljcyBvZiBtYXJyYWlnZSB3YW50ZWQgdG8ga25vdyBob3cgbWFueSBob3VycyBwZXIgd2VlayB0aGUgYXZlcmFnZSBBbWVyaWNhbiBjb3VwbGUgc3BlbmRzIGRpc2N1c3NpbmcgbWFyaXRhbCBwcm9ibGVtcy4gVGhlIHNhbXBsZSBtZWFuICgkXGJhcntYfSQpIG9mIDE1NSByYW5kb21seSBzZWxlY3RlZCBjb3VwbGVzIHR1cm5lZCBvdXQgdG8gYmUgMi42IGhvdXJzLCB3aXRoICRzJCA9IDEuOC4KCiAgICBhLiBGaW5kIHRoZSA5NSUgY29uZmlkZW5jZSBpbnRlcnZhbCBmb3IgJFxoYXR7XG11fSQuCiAgICAKICAgIAogICAgdi4gQSBFdXJvcGVhbiBzdHVkeSBoYWQgYWxyZWFkeSBlc3RpbWF0ZWQgdGhlIHBvcHVsYXRpb24gbWVhbiB0byBiZSAzIGhvdXJzIHBlciB3ZWVrIGZvciBFdXJvcGVhbiBjb3VwbGVzLiBBcmUgdGhlIEFtZXJpY2FuIGNvdXBsZXMgc2lnbmlmaWNhbnRseSBkaWZmZXJlbnQgZnJvbSB0aGUgRXVyb3BlYW4gY291cGxlcyBhdCB0aGUgJFxhbHBoYSQgPSAuMDUgbGV2ZWw/IEV4cGxhaW4gaG93IHlvdXIgYW5zd2VyIHRvIHBhcnQgKGEpIG1ha2VzIGl0IGVhc3kgdG8gYW5zd2VyIHBhcnQgKGIpIHdpdGhvdXQgbmVlZGluZyB0byBkbyBhbnkgYWRkaXRpb25hbCBjYWxjdWxhdGlvbnMu</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAnSFcgIzQ6ICp0Ki10ZXN0cycKYXV0aG9yOiAiRWRkaWUgQ2hhcG1hbiIKZGF0ZTogIjEwLzEvMTkiCm91dHB1dDoKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKICBodG1sX25vdGVib29rOiBkZWZhdWx0Ci0tLQoxLiBBIHBzeWNob2xvZ2lzdCB3b3VsZCBsaWtlIHRvIGtub3cgaG93IG1hbnkgY2FzdWFsIGZyaWVuZHMgYXJlIGluIHRoZSBhdmVyYWdlIHBlcnNvbuKAmXMgc29jaWFsIG5ldHdvcmsuICBTaGUgaW50ZXJ2aWV3cyBhIHJhbmRvbSBzYW1wbGUgb2YgcGVvcGxlIGFuZCBkZXRlcm1pbmVzIGZvciBlYWNoIHRoZSBudW1iZXIgb2YgZnJpZW5kcyBvciBzb2NpYWwgYWNxdWFpbnRhbmNlcyB0aGV5IHNlZSBvciB0YWxrIHRvIGF0IGxlYXN0IG9uY2UgYSB5ZWFyLiBUaGUgZGF0YSBhcmUgYXMgZm9sbG93czogNSwgMTEsIDE1LCA5LCA3LCAxMywgMjMsIDgsIDEyLCA3LCAxMCwgMTEsIDIxLCAyMCwgMTMuIChUbyBzYXZlIHlvdSB0aW1lLCAkXGJhcntYfSQgPSAxMi4zMyBhbmQgJHMkID0gNS4zOC4pCgogICAgYS4gRmluZCB0aGUgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgZm9yIHRoZSBtZWFuICgkXG11JCkgb2YgdGhlIHBvcHVsYXRpb24uCiAgICAgICAgCiAgICAgICAgXFtDSV97Ljk1fSA9IFxiYXJ7WH0gXHBtICh0X3swLjUvMn0pKHNfe1xiYXJ7WH19KSA9IFxiYXJ7WH0gXHBtICh0X3suMDUvMn0pIChcZnJhY3tzfXtcc3FydHtufX0pXF0KICAgICAgICAKICAgICAgICBcW0NJX3suOTV9ID0gMTIuMzMgXHBtIDIuMTUgKFxmcmFjezUuMzh9e1xzcXJ0ezE1fX0pID0gMTIuMzMgXHBtIDIuOThcXQogICAgICAgIAogICAgICAgIFxbXGhhdHtcbXV9X3tsb3dlcn0gPSA5LjM1IFxxdWFkIFxoYXR7XG11fV97dXBwZXJ9ID0gMTUuMzFcXQogICAgCiAgICBiLiBJZiBhIHByZXZpb3VzIHJlc2VhcmNoZXIgaGFkIHByZWRpY3RlZCB0aGUgcG9wdWxhdGlvbiBtZWFuIG9mIDEwIGNhc3VhbCBmcmllbmRzIHBlciBwZXJzb24sIGNvdWxkIHRoYXQgcHJlZGljdGlvbiBiZSByZWplY3RlZCBhcyBhIGh5cG90aGVzaXMgYXQgdGhlIC4wNSBsZXZlbCwgdHdvLXRhaWxlZD8gSG93IGRvIHlvdSBrbm93PwogICAgCiAgICAgICAgKk91ciBjb25maWRlbmNlIGludGVydmFsIHF1YW50aWZpZXMgdGhlIHZhcmlhYmlsaXR5IGFyb3VuZCB0aGUgcG9pbnQgZXN0aW1hdGUuIFdlIGNhbiBiZSBmYWlybHkgY2VydGFpbiB0aGF0IHRoZSByYW5nZSBvZiB2YWx1ZXMgYmV0d2VlbiB0aGUgdXBwZXIgYW5kIGxvd2VyIGJvdW5kcyBjb250YWlucyB0aGUgdHJ1ZSBwb3B1bGF0aW9uIG1lYW4uIEJlY2F1c2UgdGhlIHByZWRpY3RlZCBwb2ludCBlc3RpbWF0ZSBvZiAxMCBpcyBsb2NhdGVkIHdpdGhpbiBvdXIgY29uZmlkZW5jZSBpbnRlcnZhbCwgaXQgY2Fubm90IGJlIHJlamVjdGVkIGFzIGEgaHlwb3RoZXNpcyBhdCB0aGUgLjA1IGxldmVsLioKICAgIAogICAgCjIuIFVzZSBgUmAgdG8gY2hlY2sgeW91ciBhbnN3ZXIgdG8gIzkoYSkuIEluY2x1ZGUgeW91ciBjb2RlIGFuZCBvdXRwdXQsIGFuZCBpbmRpY2F0ZSB3aGVyZSB5b3UgY2FuIGZpbmQgdGhlIHJlbGV2YW50IHZhbHVlcy4KCiAgICBgYGB7cn0KICAgIGZyaWVuZF9jb3VudHMgPC0gYyg1LCAxMSwgMTUsIDksIDcsIDEzLCAyMywgOCwgMTIsIDcsIDEwLCAxMSwgMjEsIDIwLCAxMykKICAgIHQudGVzdChmcmllbmRfY291bnRzLCBtdSA9IG1lYW4oZnJpZW5kX2NvdW50cyksIGNvbmYubGV2ZWwgPSAuOTUpCiAgICBgYGAKCjMuIFRoZSBkYXRhIGZpbGUgInNwZWVkLmNzdiIgY29udGFpbnMgdGhlIHNwZWVkcyAoaW4gbWlsZXMgcGVyIGhvdXIpIGZvciAyNSBpbmRpdmlkdWFscyBkcml2aW5nIG9uIHRoZSBmcmVld2F5LiBUZXN0IHRoZSBudWxsIGh5cG90aGVzaXMgYXQgdGhlICRcYWxwaGEkID0gLjA1IGxldmVsICh0d28tdGFpbGVkKSB0aGF0IHRoZSBtZWFuIG9mIHRoZSBwb3B1bGF0aW9uIGZyb20gd2hpY2ggdGhlc2UgZGF0YSB3ZXJlIGRyYXduIGlzIDU1IG1waC4gV2hhdCBhcmUgdGhlIHBvaW50IGVzdGltYXRlIGFuZCA5NSUgY29uZmlkZW5jZSBpbnRlcnZhbCBvZiB0aGUgcG9wdWxhdGlvbiBtZWFuPyBVc2UgYFJgIHRvIGFuc3dlciB0aGlzIHF1ZXN0aW9uLCBpbmNsdWRpbmcgcmVsZXZhbnQgY29kZSBhbmQgb3V0cHV0LgoKICAgIGBgYHtyfQogICAgZGF0YSA8LSByZWFkLmNzdignc3BlZWQuY3N2JywgaGVhZGVyID0gVCkKICAgIHQudGVzdChkYXRhJFNwZWVkLCBtdSA9IDU1LCBjb25mLmxldmVsID0gLjk1KQogICAgYGBgCgogICAgKldlIGNhbiByZWplY3QgdGhlIG51bGwgaHlwb3RoZXNpcyB0aGF0ICRcbXUkIGlzIDU1IG1waCBiZWNhdXNlIGl0IGRvZXMgbm90IGZhbGwgd2l0aGluIHRoZSA5NSBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWwgb2YgNTcuODMtNjcuMjEuIFRoZSBwb2ludCBlc3RpbWF0ZSBmb3IgdGhlIHBvcHVsYXRpb24gbWVhbiBpcyA2Mi41MiBtcGguKgo0LiBBbiBlZHVjYXRpb25hbCBwc3ljaG9sb2dpc3QgaXMgaW50ZXJlc3RlZCBpbiB3aGV0aGVyIGEgdGVzdCBwcmVwIHByb2dyYW0gaW5jcmVhc2VzIHN0dWRlbnRzJyB2ZXJiYWwgR1JFIHNjb3Jlcy4gU3R1ZGVudHMgdGFrZSB0aGUgdmVyYmFsIEdSRSBiZWZvcmUgdGhlIHRlc3QgcHJlcCBwcm9ncmFtLCBhbmQgdGhlbiB0aGV5IHRha2UgdGhlIHRlc3QgYWdhaW4gYWZ0ZXIgdGhlIHRlc3QgcHJlcCBwcm9ncmFtLiBUaGUgZGF0YSBhcmUgcmVjb3JkZWQgYmVsb3c6CgpWZXJiYWwgR1JFICgxKQo1NDAKNTEwCjU4MAo1NTAKNTIwCgpWZXJiYWwgR1JFICgyKQo1NzAKNTIwCjYwMAo1MzAKNTIwCgogICAgYS4gV2h5IGlzIGEgcmVsYXRlZCBzYW1wbGVzICR0JC10ZXN0IGFwcHJvcHJpYXRlIHRvIGFkZHJlc3MgdGhpcyByZXNlYXJjaCBxdWVzdGlvbj8KICAgIAogICAgCiAgICBiLiBCeSBoYW5kLCBjb25kdWN0IGEgcmVsYXRlZCBzYW1wbGVzICR0JC10ZXN0IHRvIGRldGVybWluZSB3aGV0aGVyIHRoZSB0ZXN0IHByZXAgcHJvZ3JhbSBpbmNyZWFzZXMgdmVyYmFsIEdSRSBzY29yZXMuIChZb3UgbWF5IHVzZSBgUmAgdG8gY2FsY3VsYXRlIHRoZSBtZWFuIGFuZCB2YXJpYW5jZSBvZiB0aGUgZGlmZmVyZW5jZSBzY29yZXMuKSBVc2UgJFxhbHBoYSQgPSAuMDUgYW5kIGRvIGEgKipvbmUtdGFpbGVkKiogdGVzdC4gCiAgICAKICAgIAogICAgYy4gQ29uc3RydWN0IGEgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgZm9yICRcaGF0e211fV9EJC4gKFVzZSB0aGUgdHdvLXRhaWxlZCBjcml0aWNhbCB2YWx1ZS4pCiAgICAKICAgIAogICAgZC4gUmVnYXJkbGVzcyBvZiB0aGUgb3V0Y29tZSBvZiB0aGUgaHlwb3RoZXNpcyB0ZXN0LCBpZiB5b3Ugd2VyZSB0byBjb21wdXRlIENvaGVuJ3MgJGQkLCB3aGF0IHZhbHVlIHdvdWxkIG1ha2UgdGhlIG1vc3Qgc2Vuc2UgdG8gdXNlIGFzIHRoZSBkZW5vbWluYXRvciAoaS5lLiwgdGhlIHN0YW5kYXJkIGRldmlhdGlvbik/IFdoeT8KICAgIAoKNS4gRG91YmxlIGNoZWNrIHlvdXIgaGFuZCBjYWxjdWxhdGlvbnMgZnJvbSAjNCBieSBpbnB1dHRpbmcgdGhlIGRhdGEgaW50byBgUmAgYW5kIGNvbmR1Y3RpbmcgdGhlIGFwcHJvcHJpYXRlIHRlc3QuIEluY2x1ZGUgYW55IHJlbGV2YW50IGNvZGUgYW5kIG91dHB1dC4gCgoKNi4gQSBwc3ljaG9sb2dpc3Qgc3R1ZHlpbmcgdGhlIGR5bmFtaWNzIG9mIG1hcnJhaWdlIHdhbnRlZCB0byBrbm93IGhvdyBtYW55IGhvdXJzIHBlciB3ZWVrIHRoZSBhdmVyYWdlIEFtZXJpY2FuIGNvdXBsZSBzcGVuZHMgZGlzY3Vzc2luZyBtYXJpdGFsIHByb2JsZW1zLiBUaGUgc2FtcGxlIG1lYW4gKCRcYmFye1h9JCkgb2YgMTU1IHJhbmRvbWx5IHNlbGVjdGVkIGNvdXBsZXMgdHVybmVkIG91dCB0byBiZSAyLjYgaG91cnMsIHdpdGggJHMkID0gMS44LgoKICAgIGEuIEZpbmQgdGhlIDk1JSBjb25maWRlbmNlIGludGVydmFsIGZvciAkXGhhdHtcbXV9JC4KICAgIAogICAgCiAgICB2LiBBIEV1cm9wZWFuIHN0dWR5IGhhZCBhbHJlYWR5IGVzdGltYXRlZCB0aGUgcG9wdWxhdGlvbiBtZWFuIHRvIGJlIDMgaG91cnMgcGVyIHdlZWsgZm9yIEV1cm9wZWFuIGNvdXBsZXMuIEFyZSB0aGUgQW1lcmljYW4gY291cGxlcyBzaWduaWZpY2FudGx5IGRpZmZlcmVudCBmcm9tIHRoZSBFdXJvcGVhbiBjb3VwbGVzIGF0IHRoZSAkXGFscGhhJCA9IC4wNSBsZXZlbD8gRXhwbGFpbiBob3cgeW91ciBhbnN3ZXIgdG8gcGFydCAoYSkgbWFrZXMgaXQgZWFzeSB0byBhbnN3ZXIgcGFydCAoYikgd2l0aG91dCBuZWVkaW5nIHRvIGRvIGFueSBhZGRpdGlvbmFsIGNhbGN1bGF0aW9ucy4=</div>
 
 
 

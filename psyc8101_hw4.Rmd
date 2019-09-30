@@ -9,17 +9,33 @@ output:
 1. A psychologist would like to know how many casual friends are in the average person’s social network.  She interviews a random sample of people and determines for each the number of friends or social acquaintances they see or talk to at least once a year. The data are as follows: 5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13. (To save you time, $\bar{X}$ = 12.33 and $s$ = 5.38.)
 
     a. Find the 95% confidence interval for the mean ($\mu$) of the population.
+        
+        \[CI_{.95} = \bar{X} \pm (t_{0.5/2})(s_{\bar{X}}) = \bar{X} \pm (t_{.05/2}) (\frac{s}{\sqrt{n}})\]
+        
+        \[CI_{.95} = 12.33 \pm 2.15 (\frac{5.38}{\sqrt{15}}) = 12.33 \pm 2.98\]
+        
+        \[\hat{\mu}_{lower} = 9.35 \quad \hat{\mu}_{upper} = 15.31\]
     
+    b. If a previous researcher had predicted the population mean of 10 casual friends per person, could that prediction be rejected as a hypothesis at the .05 level, two-tailed? How do you know?
     
-    b. If a previous researcher had predicted the population mean of 10 casual friends per person, could that prediction be rejected as ahypothesis at the .05 level, two-tailed? How do you know?
+        *Our confidence interval quantifies the variability around the point estimate. We can be fairly certain that the range of values between the upper and lower bounds contains the true population mean. Because the predicted point estimate of 10 is located within our confidence interval, it cannot be rejected as a hypothesis at the .05 level.*
     
     
 2. Use `R` to check your answer to #9(a). Include your code and output, and indicate where you can find the relevant values.
 
+    ```{r}
+    friend_counts <- c(5, 11, 15, 9, 7, 13, 23, 8, 12, 7, 10, 11, 21, 20, 13)
+    t.test(friend_counts, mu = mean(friend_counts), conf.level = .95)
+    ```
 
-3. The data file "speed.csv" contains the speeds (in miles per hour) for 25 individuals driving on the freeway. Test the nully hypothesis at the $\alpha$ = .05 level (two-tailed) that the mean of the population from which these data were drawn is 55 mph. What are the point estimate and 95% confidence interval of the population mean? Use `R` to answer this question, including relevant code and output. 
+3. The data file "speed.csv" contains the speeds (in miles per hour) for 25 individuals driving on the freeway. Test the null hypothesis at the $\alpha$ = .05 level (two-tailed) that the mean of the population from which these data were drawn is 55 mph. What are the point estimate and 95% confidence interval of the population mean? Use `R` to answer this question, including relevant code and output.
 
+    ```{r}
+    data <- read.csv('speed.csv', header = T)
+    t.test(data$Speed, mu = 55, conf.level = .95)
+    ```
 
+    *We can reject the null hypothesis that $\mu$ is 55 mph because it does not fall within the 95 percent confidence interval of 57.83-67.21. The point estimate for the population mean is 62.52 mph.*
 4. An educational psychologist is interested in whether a test prep program increases students' verbal GRE scores. Students take the verbal GRE before the test prep program, and then they take the test again after the test prep program. The data are recorded below:
 
 Verbal GRE (1)
