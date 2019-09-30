@@ -110,5 +110,12 @@ output:
 
     a. Find the 95% confidence interval for $\hat{\mu}$.
     
+        \[CI_{.95} = \bar{X} \pm (z_{0.5/2})(s_{\bar{X}}) = \bar{X} \pm (z_{.05/2}) (\frac{s}{\sqrt{N}})\]
+        
+        \[CI_{.95} = 2.6 \pm 1.96 * (\frac{1.8}{155}) = 2.6 \pm 0.28\]
+        
+        \[\hat{\mu}_{lower} = 2.3166 \quad \hat{\mu}_{upper} = 2.8834\]
     
     v. A European study had already estimated the population mean to be 3 hours per week for European couples. Are the American couples significantly different from the European couples at the $\alpha$ = .05 level? Explain how your answer to part (a) makes it easy to answer part (b) without needing to do any additional calculations.
+    
+        *Yes, the American couples are significantly different from the European couples because the sample mean of the European couples (3) falls outside of the 95% confidence interval calculated around the estimated population mean (2.32 - 2.88).*
