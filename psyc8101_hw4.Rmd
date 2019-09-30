@@ -83,15 +83,27 @@ output:
         
         *Our test statistic (0.93) does not exceed the critical value (2.132) so we cannot reject the null hypothesis that the test prep program does has no significant effect on the distribution of verbal GRE scores.*
         
-        
     
     c. Construct a 95% confidence interval for $\hat{\mu}_D$. (Use the two-tailed critical value.) 
     
+        \[CI_{.95} = \bar{D} \pm (t_{0.5/2})(s_{\bar{D}}) = \bar{D} \pm (t_{.05/2}) (\frac{s}{\sqrt{n}})\]
+        
+        \[CI_{.95} = 8 \pm 2.776 * 8.6 = 8 \pm 23.87\]
+        
+        \[\hat{\mu}_{lower} = -15.87 \quad \hat{\mu}_{upper} = 31.87\]
     
     d. Regardless of the outcome of the hypothesis test, if you were to compute Cohen's $d$, what value would make the most sense to use as the denominator (i.e., the standard deviation)? Why?
     
+        *It would be best to use the standard deviation of the pre-treatment scores to provide a baseline to compare against the effect of the treatment.*
+    
 
-5. Double check your hand calculations from #4 by inputting the data into `R` and conducting the appropriate test. Include any relevant code and output. 
+5. Double check your hand calculations from #4 by inputting the data into `R` and conducting the appropriate test. Include any relevant code and output.
+    ```{r}
+    gre1 <- c(540, 510, 580, 550, 520)
+    gre2 <- c(570, 520, 600, 530, 520)
+    t.test(gre2, gre1, paired = T, conf.level = .95)
+    ```
+    
 
 
 6. A psychologist studying the dynamics of marraige wanted to know how many hours per week the average American couple spends discussing marital problems. The sample mean ($\bar{X}$) of 155 randomly selected couples turned out to be 2.6 hours, with $s$ = 1.8.
