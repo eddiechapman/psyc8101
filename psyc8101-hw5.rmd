@@ -1,5 +1,5 @@
 ---
-title: 'HW #4: Independent Samples *t*-tests and Power'
+title: 'HW #5: Independent Samples *t*-tests and Power'
 author: "Eddie Chapman"
 date: "10/8/19"
 output:
@@ -7,45 +7,107 @@ output:
   html_notebook: default
 ---
 
-1. A researcher is interested in assessing the effectiveness of a prenatal care intervention on newborns' birthweights. Adolescent pregnant women - who tend to have infants of lower birthweight - are identified and invited to participate in an experiment. Those ho wish to participate are randomly assigned to one of two groups: a control group or an experimental group. Women in the experimental group participate in the prenatal care program, whereas women in the control group do not. After their babies were born, the following data were collected (DV = Newborn's birthweight in lbs):
+1. A researcher is interested in assessing the effectiveness of a prenatal care intervention on newborns' birthweights. Adolescent pregnant women - who tend to have infants of lower birthweight - are identified and invited to participate in an experiment. Those who wish to participate are randomly assigned to one of two groups: a control group or an experimental group. Women in the experimental group participate in the prenatal care program, whereas women in the control group do not. After their babies were born, the following data were collected (DV = Newborn's birthweight in lbs):
 
-  \[\begin{tabular}{||c c||}
-      \hline
-      Experimental Group & Control Group \\ [0.5ex] 
-      \hline
-      \hline
-      5.6 & 5.6 \\ 
-      \hline
-      7.7 & 6.4 \\
-      \hline
-      8.1 & 5.6 \\
-      \hline
-      7.6 & 5.9 \\
-      \hline
-      8.8 & 6.6 \\
-      \hline
-      7.5 & 7.4 \\
-      \hline
-      6.6 & 6.4 \\
-      \hline
-      8.4 & 7.0 \\
-      \hline
-      7.2 & 4.8 \\
-      \hline
-      7.5 &  \\
-      \hline
-    \end{tabular}\]  
+      \[\begin{tabular}{||c c||}
+          \hline
+          Experimental Group & Control Group \\ [0.5ex] 
+          \hline
+          \hline
+          5.6 & 5.6 \\ 
+          \hline
+          7.7 & 6.4 \\
+          \hline
+          8.1 & 5.6 \\
+          \hline
+          7.6 & 5.9 \\
+          \hline
+          8.8 & 6.6 \\
+          \hline
+          7.5 & 7.4 \\
+          \hline
+          6.6 & 6.4 \\
+          \hline
+          8.4 & 7.0 \\
+          \hline
+          7.2 & 4.8 \\
+          \hline
+          7.5 &  \\
+          \hline
+        \end{tabular}\]  
 
     
-  a. Did the treatment program result in significantly different birthweights for the newborns? Use the "rule of thumb" (i.e., largest variance shouldn't be larger than twice the smallest variance) to compare the samples' variance and decide on the appropriate test for testing the researcher's hypothesis. Use $\alpha$ = .05. You may use software to compute the means and SDs, but conduct the test by hand, showing all steps.
+      a. Did the treatment program result in significantly different birthweights for the newborns? Use the "rule of thumb" (i.e., largest variance shouldn't be larger than twice the smallest variance) to compare the samples' variance and decide on the appropriate test for testing the researcher's hypothesis. Use $\alpha$ = .05. You may use software to compute the means and SDs, but conduct the test by hand, showing all steps.
     
-      ```{r}
-      group_experimental <- c(5.6, 7.7, 8.1, 7.6, 8.8, 7.5, 6.6, 8.4, 7.2, 7.5)
-      group_control <- c(5.6, 6.4, 5.6, 5.9, 6.6, 7.4, 6.4, 7.0, 4.8)
-      ```
+          ```{r}
+          library(knitr)
+          library(car)
+        
+          exp <- c(5.6, 7.7, 8.1, 7.6, 8.8, 7.5, 6.6, 8.4, 7.2, 7.5)
+          ctl <- c(5.6, 6.4, 5.6, 5.9, 6.6, 7.4, 6.4, 7.0, 4.8)
+        
+          sample_description <- data.frame(
+            mean_exp = mean(exp),
+            mean_ctl = mean(ctl),
+            var_exp  = var(exp),
+            var_ctl  = var(ctl)
+          )
+        
+          kable(
+            sample_description, 
+            digits = 3, 
+            format = 'latex', 
+            align  = 'c'
+          )
+          ```
+      
+          \[H_0: \mu_1 = \mu_2 \quad\quad H_1: \mu_1 - \mu_2 \neq 0\]  
+          
+          \[\alpha = .05\]  
+          
+          \[n_1 = 9 \quad\quad n_2 = 10\]  
+          
+          \[\bar{X_1} = 6.189 \quad\quad \bar{X_2} = 7.5\]  
+          
+          \[s^2_1 = 0.636 \quad\quad s^2_2 = 0.824\]  
+          
+          \[s^2_p = \frac{(n_1 - 1)s^2_1 + (n_2 - 1)s^2_2}{n_1 + n_2 - 2}
+            = \frac{8 * 0.636 + 9 * 0.824}{9 + 10 - 2}
+            = \frac{12.504}{17}
+            = 0.736\]  
+          
+          \[t = \frac{(\bar{X_1} - \bar{X_2})}{\sqrt{s^2_p (\frac{1}{n_1} + \frac{1}{n_2})}}
+            = \frac{(6.189 - 7.5)}{\sqrt{0.736 (\frac{1}{9} + \frac{1}{10})}}
+            = \frac{-1.311}{0.394}
+            = -3.327\]  
+          
+          \[df = n_1 + n_2 - 2 = 17\]  
+          
+          \[t_{crit}(17) = \pm 2.11\]  
+          
+          \[t > 2.11\] 
+      
+          *We can reject the null hypothesis that the population mean of the experiment group and is identical to the population mean of the control group.* 
+      
+      
+      
     
-  b. Construct a 95% confidence interval for $\hat{\mu_1}$ - $\hat{\mu_2}$. Is the confidence interval consistent with your conclusion from part (a)? Why or why not?
+      b. Construct a 95% confidence interval for $\hat{\mu_1}$ - $\hat{\mu_2}$. Is the confidence interval consistent with your conclusion from part (a)? Why or why not?
+      
+          \[CI_{0.95} = (\bar{X}_1 - \bar{X}_2) \pm (t_{crit})(s_{\bar{X}_1 - \bar{X}_2})
+            = (6.189 - 7.5) \pm (2.11)(0.394)
+            = -1.311 \pm 0.831\]
+          
+          \[\hat{\mu}_{lower} = -2.14 \quad \hat{\mu}_{upper} = -0.48\] 
+          
+          *This interval is consistent with our conclusion from part (a) because it does not include the estimated mean of the sample differences from the null hypothesis, 0.*
+          
     
 2. Carry out the same $t$-test that you did in #1 using `R`. Also request a test for the homogeneity of variances. Include your code and relevant output. 
 
-    
+    ```{r}
+    weight = c(exp, ctl)
+    group = c(rep("exp", length(exp)), rep("ctl", length(ctl)))
+    leveneTest(weight, group)
+    t.test(weight ~ group, var.equal = TRUE)
+    ```
