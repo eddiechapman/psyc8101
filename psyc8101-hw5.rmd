@@ -1,0 +1,51 @@
+---
+title: 'HW #4: Independent Samples *t*-tests and Power'
+author: "Eddie Chapman"
+date: "10/8/19"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+1. A researcher is interested in assessing the effectiveness of a prenatal care intervention on newborns' birthweights. Adolecent pregnant women - who tend to have infants of lower birthweight - are identified and invited to participate in an experiement. Those ho wish to participate are randomly assigned to one of two groups: a control group or an experimental group. Women in the experimental group participate in the prenatal care program, whereas women in the control group do not. After their babies were born, the following data were collected (DV = Newborn's birthweight in lbs):
+
+  \[\begin{tabular}{||c c||}
+      \hline
+      Experimental Group & Control Group \\ [0.5ex] 
+      \hline
+      \hline
+      5.6 & 5.6 \\ 
+      \hline
+      7.7 & 6.4 \\
+      \hline
+      8.1 & 5.6 \\
+      \hline
+      7.6 & 5.9 \\
+      \hline
+      8.8 & 6.6 \\
+      \hline
+      7.5 & 7.4 \\
+      \hline
+      6.6 & 6.4 \\
+      \hline
+      8.4 & 7.0 \\
+      \hline
+      7.2 & 4.8 \\
+      \hline
+      7.5 &  \\
+      \hline
+    \end{tabular}\]  
+
+    
+  a. Did the treatment program result in significantly different birthweights for the newborns? Use the "rule of thumb" (i.e., largest variance shouldn't be larger than twice the smallest variance) to compare the samples' variance and decide on the appropriate test for testing the researcher's hypothesis. Use $\alpha$ = .05. You may use software to compute the means and SDs, but conduct the test by hand, showing all steps.
+    
+      ```{r}
+      group_experimental <- c(5.6, 7.7, 8.1, 7.6, 8.8, 7.5, 6.6, 8.4, 7.2, 7.5)
+      group_control <- c(5.6, 6.4, 5.6, 5.9, 6.6, 7.4, 6.4, 7.0, 4.8)
+      ```
+    
+  b. Construct a 95% confidence interval for $\hat{\mu_1}$ - $\hat{\mu_2}$. Is the confidence interval consistent with your conclusion from part (a)? Why or why not?
+    
+2. Carry out the same $t$-test that you did in #1 using `R`. Also request a test for the homogeneity of variances. Include your code and relevant output. 
+
+    
