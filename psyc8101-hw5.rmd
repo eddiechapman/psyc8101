@@ -7,7 +7,7 @@ output:
   html_notebook: default
 ---
 
-1. A researcher is interested in assessing the effectiveness of a prenatal care intervention on newborns' birthweights. Adolecent pregnant women - who tend to have infants of lower birthweight - are identified and invited to participate in an experiement. Those ho wish to participate are randomly assigned to one of two groups: a control group or an experimental group. Women in the experimental group participate in the prenatal care program, whereas women in the control group do not. After their babies were born, the following data were collected (DV = Newborn's birthweight in lbs):
+1. A researcher is interested in assessing the effectiveness of a prenatal care intervention on newborns' birthweights. Adolescent pregnant women - who tend to have infants of lower birthweight - are identified and invited to participate in an experiment. Those ho wish to participate are randomly assigned to one of two groups: a control group or an experimental group. Women in the experimental group participate in the prenatal care program, whereas women in the control group do not. After their babies were born, the following data were collected (DV = Newborn's birthweight in lbs):
 
   \[\begin{tabular}{||c c||}
       \hline
