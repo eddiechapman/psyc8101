@@ -1,0 +1,47 @@
+---
+title: 'HW #6: Power & One-WAY ANOVA'
+author: "Eddie Chapman"
+date: "10/16/2019"
+output: pdf_document
+---
+
+1. You are interested in writing a proposal for a study for which you need to justify the number of participants you will recruit. Your study will assess the effectiveness of a breathing exercise to lower blood pressure. You intend to randomly assign participants to one of two conditions.: control (no intervention) and experimental (will be taught the breathing exercise). You want to recruit an ideal number of participants to obtain significant results 80% of the time (if you were to repeat the study an infinite number of times). Based on your intuition and knowledge of the literature, you expect the effect size of the treatment to be 0.38.
+
+    a. What type of test will you perform?
+    
+    
+    b. What is the value of $\alpha$? 
+    
+    
+    c. What is the value of $\beta$?
+    
+    
+    d. What is the value of $\delta$?
+    
+    
+    e. What is the ideal sample size?
+    
+    
+2. Use `R` to check your answer to #1. Include your code and output.
+
+
+3. You are interested in studying cognitive differences between two **related** groups, and you know the effect size of those potential differences is small (approximately 0.20). You also know that you need power of 0.80 for your study to be worth your time. What is the ideal number of participants that should be used to for a two-tailed tested when $\alpha$ = .05?
+
+
+4. Use `R` to check your answer to #3. Include your code and output. 
+
+
+
+5. What factors influence power and why?
+
+
+6. Explain what is meant by a "non-centrality" parameter. How is the non-centrality parameter related to the alternative hypothesis distribution?
+
+
+7. Cognitive organizers are tools used by teachers to improve students' learning of concepts. One study experimented with the order of cognitive organizers that structure the material for the learner. A group of 30 persons was randomly split into three groups of ten each. Group I received organizing material before studying instructional materials on mathematics; Group II received the "organizer" after studying the mathematics; Group III received the math materials but no organizing material. On a 10-item test over the mathematics covered, the following scores were earned:
+
+    Group I: $[5, 4, 4, 7, 8, 7, 6, 4, 4, 7]$  
+    Group II: $[4, 5, 3, 6, 6, 3, 3, 4, 4, 2]$  
+    Group III: $[5, 4, 6, 2, 2, 2, 6, 4, 3, 5]$  
+
+    Carry out the appropriate analyses to test the null hypothesis that all group means are equal. Use $\alpha$ = .05. You may use `R` to compute the means and SDs, but conduct the test by hand, showing all steps. Report your results in an ANOVA summary table. Interpret your results in the context of the research question. 
