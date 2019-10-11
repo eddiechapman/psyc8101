@@ -9,20 +9,39 @@ output: pdf_document
 
     a. What type of test will you perform?
     
+        *Two-sample t-test.*
     
     b. What is the value of $\alpha$? 
+    
+        \[\alpha = .05\]
     
     
     c. What is the value of $\beta$?
     
+        \[\beta = .2\]
     
     d. What is the value of $\delta$?
+    
+        \[\delta = 2.8\]
     
     
     e. What is the ideal sample size?
     
+        \[n = 2(\frac{\delta}{d})^2
+        = 2(\frac{2.8}{0.38})^2
+        = 108.67\]
+        
+        *109 participants per group.*
+    
     
 2. Use `R` to check your answer to #1. Include your code and output.
+
+    ```{r echo=FALSE} 
+    library(pwr)
+    ```
+    ```{r}
+    pwr.t.test(d = .38, sig.level = .05, power = .8, type = 'two.sample', alternative = 'two.sided')
+    ```
 
 
 3. You are interested in studying cognitive differences between two **related** groups, and you know the effect size of those potential differences is small (approximately 0.20). You also know that you need power of 0.80 for your study to be worth your time. What is the ideal number of participants that should be used to for a two-tailed tested when $\alpha$ = .05?
@@ -34,8 +53,17 @@ output: pdf_document
 
 5. What factors influence power and why?
 
+    *The power of a test is influenced by the the sample size, the effect size, and the variance of the two sample distributions.*  
+    
+    *A larger effect size indicates a greater difference between the mean of the alternative and null distributions, reducing overlap.*
+    
+    *A larger sample size decreases the standard error of the sampling distribution, reducing overlap.*
+    
+    *A smaller population variance also decreases the standard error of the sampling distribution, reducing overlap.*
 
 6. Explain what is meant by a "non-centrality" parameter. How is the non-centrality parameter related to the alternative hypothesis distribution?
+
+    *A "non-centrality" parameter is a measurement of the alternative hypothesis distribution as it relates to the measurement proposed by the rejected null hypothesis.*
 
 
 7. Cognitive organizers are tools used by teachers to improve students' learning of concepts. One study experimented with the order of cognitive organizers that structure the material for the learner. A group of 30 persons was randomly split into three groups of ten each. Group I received organizing material before studying instructional materials on mathematics; Group II received the "organizer" after studying the mathematics; Group III received the math materials but no organizing material. On a 10-item test over the mathematics covered, the following scores were earned:
