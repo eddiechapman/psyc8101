@@ -1,0 +1,111 @@
+---
+title: 'PSYC8101: Midterm Exam Corrections'
+author: "Eddie Chapman"
+date: "11/18/2019"
+output: pdf_document
+---
+
+__#3__ _(0 of 2 points)_  
+Assuming grades are curved such that your grade is determined by your location relative to your class-mates, if you score above average on a midterm exam, you're more likely to get a higer letter grade if that standard deviation is 
+
+  a. Small
+  b. Large
+  c. __It does not matter what the standard deviation is__
+  d. ~~Cannot be determined from the information given~~  
+  
+  
+  
+__#6__ _(0 of 2 points)_  
+When testing a hypothesis about the mean of one population, the only way to avoid sampling error is to 
+
+  a. ~~Use the standard error of the mean~~
+  b. Use a random sample
+  c. Draw a large number of samples
+  d. __Measure the entire population__
+  
+__#7__ _(0 of 2 points)_  
+Why do researchers usually __not__ use $\alpha = .10$ as the level of significance? 
+
+  a. __It would make a Type I error too likely__
+  b. ~~It would make a Type II error too likely~~
+  c. It would make both a Type I and a Type II error too likely
+  d. None of the above
+
+__#11__ _(0 of 2 points)_  
+When estimating the standard error of the difference between means of two independent samples, the pooled variance 
+
+  a. Gives greater weight to the larger of the two samples
+  b. Gives greater weight to the smaller of the two samples
+  c. ~~Gets smaller as the sample size gets larger~~
+  d. __None of the above__
+  
+__#17__ _(0 of 2 points)_  
+If the null hypothesis for a one-way ANOVA is true, $MS_{between}$ is expected to be approximately equal to 
+
+  a. __0__
+  b. ~~1~~
+  c. $MS_{within}$
+  d. $F$
+
+__#19__ _(0 of 2 points)_  
+Compared to Fisher's protected $t$-tests, Tukey's HSD test
+
+  a. Leads to a higher rate of Type I errors
+  b. ~~Leads to a lower rate of Type II errors~~
+  c. Maintains less control over experimentwise alpha
+  d. Is more conservative
+
+
+
+__#20__ _(0 of 2 points)_  
+We can think of mean squares as
+
+  a. $F$-ratios
+  b. Central tendency
+  c. ~~Standard devisations~~
+  d. __Variances__
+
+
+
+__#31 b.__ _(2 of 4 points)_  
+How does the $p$-value relate to the comparison of the test statistic with the critical value when we cary out hypothesis testing by hand? You may draw a picture if it is helpful.
+
+
+__#32 b.__ _(1 of 3 points)_  
+We have talked about income being an example of a skewed variable. Why don't we need to worry about the distribution of income when we construct the sampling distribution?
+
+
+__#35 b.__ _(1 of 3 points)_  
+Provide a technical interpretation of the 95% confidence interval.
+
+
+__#35 c.__ _(1 of 3 points)_  
+Why is presenting this confidence interval an improvement over conventional hypothesis testing?
+
+
+__#36 d.__ _(0 of 4 points)_  
+Explain why the test result is staistically significant but not pratically significant. In other words, how can we have a statistically significant difference but such a small effect?
+  
+  _The sample size of the experiment ($n = 25000$) is large enough that a hypothesis test can detect a small difference that is statisticaly significant, but practically insignificant._
+
+
+__#37__ _(1 of 3 points)_  
+Briefly explain what is meant by the homogeneity of variance assumption in between-subjects designs.
+
+
+
+__#38__ _(3 of 6 points)_  
+Imagine that you are comparing a sample of vegetarians to a sample of mean-eaters on cholestorol levels. If the effect size is expected to be 0.6 and we want an equal number of people in each group, how many people total would be required to attain a power level of 0.85? Assume that $\alpha = 0.5$ and that you will conduct a two-tailed test.
+
+
+__#39 d.__ _(0 of 3 points)_  
+Suppose Dr. Bowles is interested in whether each of the two classical music groups differs from the control group. Of these _post-hoc_ tests that we have discussed, which would be most powerful for addressing this research question?
+
+
+__#39 e.__ _(0 of 4 points)_  
+Show how the first score in the control group ($X_{11} = 9$) can be decomposed according to the general linear model. Make sure to label all of the terms.
+
+
+__#40 a.__ _(4 of 6 points)_  
+Showing all of your work, carry out a two-tailed independent samples $t$-test comparing the two group means ($\alpha = 0.05$). Make sure to state your conclusion.
+ 
