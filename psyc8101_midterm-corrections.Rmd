@@ -53,7 +53,7 @@ Compared to Fisher's protected $t$-tests, Tukey's HSD test
   a. Leads to a higher rate of Type I errors
   b. ~~Leads to a lower rate of Type II errors~~
   c. Maintains less control over experimentwise alpha
-  d. Is more conservative
+  d. __Is more conservative__
 
 
 
@@ -70,18 +70,22 @@ We can think of mean squares as
 __#31 b.__ _(2 of 4 points)_  
 How does the $p$-value relate to the comparison of the test statistic with the critical value when we cary out hypothesis testing by hand? You may draw a picture if it is helpful.
 
+_The critical value represents the region of a distribution that we consider unlikely enough to reject the null hypothesis. The p-value represents the likelyhood of the test statistic occuring in this region given the null hypothesis. Therefore, we have more confidence in a p-value that is closer to 0 than closer to the crtiical value set by alpha._
 
 __#32 b.__ _(1 of 3 points)_  
 We have talked about income being an example of a skewed variable. Why don't we need to worry about the distribution of income when we construct the sampling distribution?
 
+_As long as the population distribtion is normal and the samples are chosen randomly and of equal sample size, the the sampling distribution will be normally distributed with the same mean of the population._
 
 __#35 b.__ _(1 of 3 points)_  
 Provide a technical interpretation of the 95% confidence interval.
 
+_The interval between 8.41 and 12.99 represents our confidence in our point estimate of the population mean. We cannot know for certain where the population mean truely lies, but we can construct an interval of values for which we have a high degree of certainty (95%) that the true population mean will fall within._
 
 __#35 c.__ _(1 of 3 points)_  
 Why is presenting this confidence interval an improvement over conventional hypothesis testing?
 
+_The confidence interval not only estimates the value of the population mean, it also quantifies our confidence in that estimate. A more confident estimate corresponds to a more narrrow confidence interval._
 
 __#36 d.__ _(0 of 4 points)_  
 Explain why the test result is staistically significant but not pratically significant. In other words, how can we have a statistically significant difference but such a small effect?
@@ -92,7 +96,7 @@ Explain why the test result is staistically significant but not pratically signi
 __#37__ _(1 of 3 points)_  
 Briefly explain what is meant by the homogeneity of variance assumption in between-subjects designs.
 
-
+_This assumes that comparison groups have equal variance. ANOVA is tolerant to violations of equal variance as long as group sizes are similar. If variance is not equivalent and group sizes are not similar, this can lead to type I errors for groups with small sample sizes and decreased power for groups with large sample sizes._  
 
 __#38__ _(3 of 6 points)_  
 Imagine that you are comparing a sample of vegetarians to a sample of mean-eaters on cholestorol levels. If the effect size is expected to be 0.6 and we want an equal number of people in each group, how many people total would be required to attain a power level of 0.85? Assume that $\alpha = 0.5$ and that you will conduct a two-tailed test.
@@ -101,9 +105,23 @@ Imagine that you are comparing a sample of vegetarians to a sample of mean-eater
 __#39 d.__ _(0 of 3 points)_  
 Suppose Dr. Bowles is interested in whether each of the two classical music groups differs from the control group. Of these _post-hoc_ tests that we have discussed, which would be most powerful for addressing this research question?
 
+_The most powerful post-hoc test would be Dunnett's test._
 
 __#39 e.__ _(0 of 4 points)_  
 Show how the first score in the control group ($X_{11} = 9$) can be decomposed according to the general linear model. Make sure to label all of the terms.
+
+$Y_{ij} = \mu + \alpha_j + \epsilon_{ij}$  
+$Y_{ij} = 11.56 + -2.56 + 0 = 9$
+
+$\alpha_j = \mu_j - \mu$  
+$\alpha_j = 9 - 11.56 = -2.56$
+
+
+$\epsilon_{ij} = Y_i - \mu_j$  
+$\epsilon_{ij} = 9 - 9 = 0$
+
+
+$Y_{ij}$ is the score for individual *i* in group *j*. $\mu$ is the grand mean. $\alpha_j$ is the group effect for group *j*. $\epsilon){ij}$ is the uniqueness for individual *i*.
 
 
 __#40 a.__ _(4 of 6 points)_  
