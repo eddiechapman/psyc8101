@@ -1,0 +1,239 @@
+---
+title: 'HW #6: Power & One-WAY ANOVA'
+author: "Eddie Chapman"
+date: "10/16/2019"
+output: pdf_document
+---
+
+1. You are interested in writing a proposal for a study for which you need to justify the number of participants you will recruit. Your study will assess the effectiveness of a breathing exercise to lower blood pressure. You intend to randomly assign participants to one of two conditions.: control (no intervention) and experimental (will be taught the breathing exercise). You want to recruit an ideal number of participants to obtain significant results 80% of the time (if you were to repeat the study an infinite number of times). Based on your intuition and knowledge of the literature, you expect the effect size of the treatment to be 0.38.
+
+    a. What type of test will you perform?
+    
+        *Two-sample t-test.*
+    
+    b. What is the value of $\alpha$? 
+    
+        \[\alpha = .05\]
+    
+    
+    c. What is the value of $\beta$?
+    
+        \[\beta = .2\]
+    
+    d. What is the value of $\delta$?
+    
+        \[\delta = 2.8\]
+    
+    
+    e. What is the ideal sample size?
+    
+        *109 participants per group.*
+        
+        \[n = 2(\frac{\delta}{d})^2
+            = 2(\frac{2.8}{0.38})^2
+            = 108.67\]
+        
+    
+2. Use `R` to check your answer to #1. Include your code and output.
+
+    ```{r echo=FALSE} 
+    library(pwr)
+    library(knitr)
+    ```
+    ```{r}
+    pwr.t.test(d = .38, sig.level = .05, power = .8, type = 'two.sample', alternative = 'two.sided')
+    ```
+
+
+3. You are interested in studying cognitive differences between two **related** groups, and you know the effect size of those potential differences is small (approximately 0.20). You also know that you need power of 0.80 for your study to be worth your time. What is the ideal number of participants that should be used to for a two-tailed tested when $\alpha$ = .05?
+
+    *392 total participants, or 196 pairs of two.*
+
+    \[d = 0.20\]  
+    
+    \[power = 0.80\]  
+    
+    \[\alpha = .05\] 
+    
+    \[\delta = 2.80\]  
+    
+    \[n = 2(\frac{\delta}{d})^2
+        = 2(\frac{2.8}{0.2})^2
+        = 392\]
+
+4. Use `R` to check your answer to #3. Include your code and output. 
+
+    ```{r}
+    pwr.t.test(d = .2, sig.level = .05, power = .8, type = 'paired', alternative = 'two.sided')
+    ```
+
+5. What factors influence power and why?
+
+    *A larger **effect size** increases power by decreasing the likelyhood of finding a significant difference that overlaps the null hypothesis distribution.*
+    
+    *A larger **sample size** increases power by reducing the standard error of the sampling distribution. This reduces overlap between the null hypothesis distribution and the alternative hypothesis distribution.*
+    
+    *A smaller **population variance** increases power by reducing the standard error of the sampling distribution. This reduces overlap between the null hypothesis distribution and the alternative hypothesis distribution.*
+
+6. Explain what is meant by a "non-centrality" parameter. How is the non-centrality parameter related to the alternative hypothesis distribution?
+
+    *A "non-centrality" parameter is a measurement of the alternative hypothesis distribution when the null hypothesis is false.*
+
+
+7. Cognitive organizers are tools used by teachers to improve students' learning of concepts. One study experimented with the order of cognitive organizers that structure the material for the learner. A group of 30 persons was randomly split into three groups of ten each. Group I received organizing material before studying instructional materials on mathematics; Group II received the "organizer" after studying the mathematics; Group III received the math materials but no organizing material. On a 10-item test over the mathematics covered, the following scores were earned:
+
+    Group I: $[5, 4, 4, 7, 8, 7, 6, 4, 4, 7]$  
+    Group II: $[4, 5, 3, 6, 6, 3, 3, 4, 4, 2]$  
+    Group III: $[5, 4, 6, 2, 2, 2, 6, 4, 3, 5]$  
+
+    Carry out the appropriate analyses to test the null hypothesis that all group means are equal. Use $\alpha$ = .05. You may use `R` to compute the means and SDs, but conduct the test by hand, showing all steps. Report your results in an ANOVA summary table. Interpret your results in the context of the research question. 
+    
+    *The ANOVA results obtained an F value of 4.01. This is greater than the critical F value of 3.35, indicating a significant difference in the means of the three sample groups. We can reject the null hypothesis that the group means are equal.*
+    
+    \[\begin{tabular}{||c c c c c c||}
+          \hline
+          Source & Sum of Squares & df & Mean Squares & F-Ratio & p-value \\ [0.5ex] 
+          \hline
+          \hline
+          Between & 18.2 & 2 & 9.1 & 4.01 & < 0.05 \\ 
+          \hline
+          Within (Error) & 61.3 & 27 & 2.27 & & \\
+          \hline
+          Total & 79.5 & & & & \\
+          \hline
+        \end{tabular}\] 
+    
+    ***
+    
+    \[H_0: \mu_1 = \mu_2 = \mu_3\]  
+    
+    \[\alpha = .05\]
+    
+    
+    ***
+    
+    
+    \[SS_{total} = \sum_{i = 1}^{N}(X_{ij} - \bar{X}..)^2 
+                 = (5 - 4.5)^2 + ... + (5 - 4.5)^2
+                 = 79.5\]  
+    
+    \[SS_{within} = \sum(X_{ij} - \bar{X}_j)^2
+                  = SS_1 + SS_2 + SS_3
+                  = 61.3\]  
+    
+    \[SS_{between} = \sum[n_j(\bar{X}_j - \bar{X} ..)^2]
+                   = 10(5.6 - 4.5)^2 + 10(4.0 - 4.5)^2 + 10(3.9 - 4.5)^2
+                   = 18.2\] 
+                   
+    ***
+    
+    \[df_{total} = N - 1 
+                 = 30 - 1
+                 = 29\]
+    
+    \[df_{within} = (n_1 - 1) + (n_2 - 1) + (n_3 - 1)
+                  = (10 - 1) + (10 - 1) + (10 - 1)
+                  = 9 + 9 + 9
+                  = 27\]
+                  
+    \[df_{between} = k - 1
+                   = 3 - 1
+                   = 2\]
+    
+    ***
+    
+    
+    \[MS_{between} = \frac{SS_{between}}{df_{between}}
+                   = \frac{18.2}{2}
+                   = 9.1\]
+    
+    \[MS_{within} = \frac{SS_{within}}{df_{within}}
+                  = \frac{61.3}{27}
+                  = 2.27\]
+    
+    
+    ***
+    
+    \[F_{obtained} = \frac{MS_{between}}{MS_{within}}
+                   = \frac{9.1}{2.27}
+                   = 4.01\] 
+     
+    \[F_{crit} = 3.35\]
+    
+    \[F_{obtained} > F_{crit}\]
+                   
+    ***
+    ```{r}
+    # -----------------------------------------------------------------
+    # group means and SDs
+    # -----------------------------------------------------------------
+    
+    group1 <- c(5, 4, 4, 7, 8, 7, 6, 4, 4, 7)  # received treatment BEFORE studying
+    group2 <- c(4, 5, 3, 6, 6, 3, 3, 4, 4, 2)  # received treatment AFTER studying
+    group3 <- c(5, 4, 6, 2, 2, 2, 6, 4, 3, 5)  # did not receieve treatment
+    total <-  c(group1, group2, group3)
+   
+    df <- data.frame(group = c('Group 1', 'Group 2', 'Group 3', 'Total'),
+                     mean  = c(mean(group1), mean(group2), mean(group3), mean(total)),
+                     sd    = c(sd(group1), sd(group2), sd(group3), sd(total)))
+    
+    df
+    
+    
+    # -----------------------------------------------------------------
+    # sums of squares
+    # -----------------------------------------------------------------
+    
+    ss_total <- sum((total - mean(total))^2)
+    ss_total
+    
+    ss_within <- sum(c(sum((group1 - mean(group1))^2),
+                       sum((group2 - mean(group2))^2),
+                       sum((group3 - mean(group3))^2)))
+    ss_within
+    
+    ss_between <- sum(c(length(group1) * (mean(group1) - mean(total))^2,
+                        length(group2) * (mean(group2) - mean(total))^2,
+                        length(group3) * (mean(group3) - mean(total))^2))
+    ss_between
+    
+    
+    # -----------------------------------------------------------------
+    # degrees of freedom
+    # -----------------------------------------------------------------
+    
+    df_total <- length(total) - 1
+    df_total
+    
+    df_within <- sum(c(length(group1) - 1, 
+                       length(group2) - 1, 
+                       length(group3) - 1))
+    df_within
+    
+    df_between <- length(c('group1', 'group2', 'group3')) - 1
+    df_between
+    
+    
+    # -----------------------------------------------------------------
+    # mean squares
+    # -----------------------------------------------------------------
+    
+    ms_between <- ss_between / df_between
+    ms_between
+    
+    ms_within <- ss_within / df_within
+    ms_within
+    
+    
+    # -----------------------------------------------------------------
+    # f-ratio
+    # -----------------------------------------------------------------
+    
+    f_obtained <- ms_between / ms_within
+    f_obtained
+    
+    reject_h0 <- f_obtained > 3.35
+    reject_h0
+    ```
+    
+    
