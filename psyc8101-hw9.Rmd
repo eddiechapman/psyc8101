@@ -1,0 +1,24 @@
+---
+title: 'HW #9: Factorial ANOVA (Part II)'
+author: "Eddie Chapman"
+date: "11/26/19"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+1. On last week’s homework, you looked at the effects of an HR course duration and patrol beat on police officers’ attitudes toward minority groups. You (hopefully) found a significant interaction between the course duration and the patrol beat. Conduct a simple effects analysis in `R`, testing whether there is an effect of course duration for each patrol beat. Make sure to interpret your results. Include all of your code and output. (Don’t worry about controlling for experimentwise error.)
+
+2. Use the appropriate interaction contrast to determine whether there is a significant interaction between course duration and patrol beat, ignoring the 10 hour group and the middle class group. Assuming that we had planned this interaction contrast before collecting data, what critical *F*-ratio should we use when $\alpha = .05$? Do this analysis by hand, and be sure to clearly show your contrast coefficients.
+
+3. Use `R` to check your answer to #2. Include your code and output.
+
+4. If we had not planned the interaction contrast in #2 in advance but instead had conducted it as a post-hoc test, what critical *F*-ratio should we use? Would we conclude that this interaction contrast is statistically significant?
+
+5. As a follow-up analysis to the interaction you tested in #2, come up with a set of two contrasts to test whether there is a significant difference between upper class and inner city for the (1) 5 hour course duration and the (2) 15 hour course duration. Test these contrasts in `R` using a Bonferonni correction and interpret the results.
+
+6. Which unbiased measure of effect size would be most appropriate for the main effect of course duration? Why?
+
+7. By hand, calculate the measure of effect size you specified in #6.
+
+8. Use `R` to check your answer to #7.
